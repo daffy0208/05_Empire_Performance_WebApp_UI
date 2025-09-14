@@ -107,10 +107,14 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
         for (let day = 1; day <= daysInMonthLocal; day++) {
           const date = new Date(month.getFullYear(), month.getMonth(), day);
           const dayOfWeek = date?.getDay();
-          const hasAvailability = availability?.some(slot => 
-            slot?.day_of_week === dayOfWeek &&
-            (!selectedLocation?.name || slot?.location === selectedLocation?.name)
-          );
+          const hasAvailability = availability?.some(slot => {
+            const matchesDow = slot?.day_of_week === dayOfWeek;
+            if (!selectedLocation?.name) return matchesDow;
+            // Allow matches on either full name or city prefix from LocationStep
+            const locName = selectedLocation?.name;
+            const locCity = selectedLocation?.city;
+            return matchesDow && (slot?.location === locName || slot?.location === locCity);
+          });
           if (hasAvailability && date >= today) {
             results?.push(date);
           }
@@ -217,7 +221,11 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
   };
 
   const isDatePast = (date) => {
-    return date < today?.setHours(0, 0, 0, 0);
+    const candidate = new Date(date);
+    candidate?.setHours(0, 0, 0, 0);
+    const todayStart = new Date();
+    todayStart?.setHours(0, 0, 0, 0);
+    return candidate < todayStart;
   };
 
   const handleDateClick = (date) => {
@@ -323,7 +331,7 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
         </div>
 
         {/* Calendar Grid */}
-        <div className="grid grid-cols-7 gap-2">
+        <div className="grid grid-cols-7 gap-2 select-none">
           {renderCalendarDays()}
         </div>
 

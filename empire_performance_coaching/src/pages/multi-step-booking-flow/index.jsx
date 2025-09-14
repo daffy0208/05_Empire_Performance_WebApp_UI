@@ -19,7 +19,11 @@ const MultiStepBookingFlow = () => {
   
   // Booking state
   const [selectedLocation, setSelectedLocation] = useState(null);
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(() => {
+    const d = new Date();
+    d.setHours(0,0,0,0);
+    return d;
+  });
   const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
   const [selectedCoach, setSelectedCoach] = useState(null);
   const [playerDetails, setPlayerDetails] = useState(null);

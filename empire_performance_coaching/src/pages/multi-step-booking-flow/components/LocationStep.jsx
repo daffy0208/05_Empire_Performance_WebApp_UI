@@ -19,6 +19,7 @@ const LocationStep = ({ selectedLocation, onLocationSelect }) => {
           setLocations([
             {
               id: 'lochwinnoch',
+              name: 'Lochwinnoch — Lochbarr Services Leisure Centre',
               city: "Lochwinnoch",
               venue: "Lochbarr Services Leisure Centre",
               address: "TBC",
@@ -28,6 +29,7 @@ const LocationStep = ({ selectedLocation, onLocationSelect }) => {
             },
             {
               id: 'airdrie',
+              name: 'Airdrie — Venue TBC',
               city: "Airdrie",
               venue: "Venue TBC", 
               address: "TBC",
@@ -37,6 +39,7 @@ const LocationStep = ({ selectedLocation, onLocationSelect }) => {
             },
             {
               id: 'east-kilbride',
+              name: 'East Kilbride — Venue TBC',
               city: "East Kilbride",
               venue: "Venue TBC",
               address: "TBC", 
@@ -46,6 +49,7 @@ const LocationStep = ({ selectedLocation, onLocationSelect }) => {
             },
             {
               id: 'glasgow-south',
+              name: 'Glasgow South / Castlemilk — Venue TBC',
               city: "Glasgow South / Castlemilk", 
               venue: "Venue TBC",
               address: "TBC",
@@ -62,6 +66,7 @@ const LocationStep = ({ selectedLocation, onLocationSelect }) => {
             
             return {
               id: location?.id,
+              name: location?.name,
               city: locationParts?.[0] || `Location ${index + 1}`,
               venue: locationParts?.[1] || location?.name || 'Venue TBC',
               address: location?.address !== 'TBC' ? location?.address : 'TBC',
@@ -81,6 +86,7 @@ const LocationStep = ({ selectedLocation, onLocationSelect }) => {
         setLocations([
           {
             id: 'lochwinnoch',
+            name: 'Lochwinnoch — Lochbarr Services Leisure Centre',
             city: "Lochwinnoch",
             venue: "Lochbarr Services Leisure Centre",
             address: "TBC",
@@ -90,6 +96,7 @@ const LocationStep = ({ selectedLocation, onLocationSelect }) => {
           },
           {
             id: 'airdrie',
+            name: 'Airdrie — Venue TBC',
             city: "Airdrie",
             venue: "Venue TBC", 
             address: "TBC",
@@ -99,6 +106,7 @@ const LocationStep = ({ selectedLocation, onLocationSelect }) => {
           },
           {
             id: 'east-kilbride',
+            name: 'East Kilbride — Venue TBC',
             city: "East Kilbride",
             venue: "Venue TBC",
             address: "TBC", 
@@ -108,6 +116,7 @@ const LocationStep = ({ selectedLocation, onLocationSelect }) => {
           },
           {
             id: 'glasgow-south',
+            name: 'Glasgow South / Castlemilk — Venue TBC',
             city: "Glasgow South / Castlemilk", 
             venue: "Venue TBC",
             address: "TBC",
