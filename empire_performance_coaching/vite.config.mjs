@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import tagger from "@dhiwise/component-tagger";
+import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,7 +23,27 @@ export default defineConfig({
       }
     }
   },
-  plugins: [tsconfigPaths(), react(), tagger()],
+  plugins: [
+    tsconfigPaths(),
+    react(),
+    tagger(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
+      manifest: {
+        name: 'Empire Performance Coaching',
+        short_name: 'EPC',
+        theme_color: '#0E0E10',
+        background_color: '#0E0E10',
+        display: 'standalone',
+        start_url: '/',
+        icons: [
+          { src: '/assets/logo-mark.svg', sizes: '192x192', type: 'image/svg+xml' },
+          { src: '/assets/logo-mark.svg', sizes: '512x512', type: 'image/svg+xml' }
+        ]
+      }
+    })
+  ],
   test: {
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],

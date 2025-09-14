@@ -79,30 +79,35 @@ const PublicHeader = () => {
             {!isBookingFlow && (
               <nav className="hidden md:flex items-center space-x-8">
                 <button
+                  onMouseEnter={() => import('../../pages/public-landing-page')}
                   onClick={() => scrollToSection('locations')}
                   className="text-[#CFCFCF] hover:text-[#C9A43B] text-sm font-medium transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#C9A43B]/50 rounded px-2 py-1"
                 >
                   Locations
                 </button>
                 <button
+                  onMouseEnter={() => import('../../pages/public-landing-page/components/CoachSpotlight')}
                   onClick={() => scrollToSection('coaches')}
                   className="text-[#CFCFCF] hover:text-[#C9A43B] text-sm font-medium transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#C9A43B]/50 rounded px-2 py-1"
                 >
                   Coaches
                 </button>
                 <button
+                  onMouseEnter={() => import('../../pages/public-landing-page/components/TestimonialsSection')}
                   onClick={() => scrollToSection('testimonials')}
                   className="text-[#CFCFCF] hover:text-[#C9A43B] text-sm font-medium transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#C9A43B]/50 rounded px-2 py-1"
                 >
                   Reviews
                 </button>
                 <button
+                  onMouseEnter={() => import('../../pages/login-register')}
                   onClick={handleLogin}
                   className="text-[#CFCFCF] hover:text-[#C9A43B] text-sm font-medium transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#C9A43B]/50 rounded px-2 py-1"
                 >
                   Login
                 </button>
                 <Button 
+                  onMouseEnter={() => import('../../pages/multi-step-booking-flow')}
                   onClick={handleBookNow}
                   variant="primary"
                   className="text-sm px-6 py-2 font-semibold"
