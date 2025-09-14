@@ -1,0 +1,15 @@
+nohup: ignoring input
+
+> empire-performance-coaching@0.1.0 start
+> vite
+
+
+  VITE v5.0.0  ready in 399 ms
+
+  ➜  Local:   http://localhost:4028/
+  ➜  Network: http://172.30.0.2:4028/
+6:16:32 PM [vite] hmr update /src/pages/multi-step-booking-flow/components/LocationStep.jsx, /src/styles/tailwind.css
+6:16:52 PM [vite] hmr update /src/pages/multi-step-booking-flow/components/CalendarStep.jsx, /src/styles/tailwind.css
+6:17:07 PM [vite] hmr update /src/pages/multi-step-booking-flow/components/CalendarStep.jsx, /src/styles/tailwind.css
+6:17:20 PM [vite] hmr update /src/pages/multi-step-booking-flow/components/CalendarStep.jsx, /src/styles/tailwind.css
+6:17:26 PM [vite] hmr update /src/pages/multi-step-booking-flow/index.jsx, /src/styles/tailwind.css
