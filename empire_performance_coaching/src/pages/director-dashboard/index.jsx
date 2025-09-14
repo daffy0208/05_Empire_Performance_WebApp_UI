@@ -6,12 +6,12 @@ import DashboardLayout from '../../components/layouts/DashboardLayout';
 
 
 import MetricsCard from './components/MetricsCard';
-import RevenueChart from './components/RevenueChart';
+const RevenueChart = React.lazy(() => import('./components/RevenueChart'));
 import CoachPerformanceTable from './components/CoachPerformanceTable';
 import ActivityFeed from './components/ActivityFeed';
 import AlertsPanel from './components/AlertsPanel';
-import BookingPatterns from './components/BookingPatterns';
-import CustomerAnalytics from './components/CustomerAnalytics';
+const BookingPatterns = React.lazy(() => import('./components/BookingPatterns'));
+const CustomerAnalytics = React.lazy(() => import('./components/CustomerAnalytics'));
 import Icon from '../../components/AppIcon';
 
 
@@ -106,13 +106,19 @@ const DirectorDashboard = () => {
           <div className="grid gap-8 lg:grid-cols-3 mb-8">
             {/* Revenue & Booking Charts */}
             <div className="lg:col-span-2 space-y-6">
-              <RevenueChart />
-              <BookingPatterns />
+              <React.Suspense fallback={<div style={{ color: '#CFCFCF' }}>Loading charts...</div>}>
+                <RevenueChart />
+              </React.Suspense>
+              <React.Suspense fallback={<div style={{ color: '#CFCFCF' }}>Loading booking patterns...</div>}>
+                <BookingPatterns />
+              </React.Suspense>
             </div>
 
             {/* Side Panel */}
             <div className="space-y-6">
-              <CustomerAnalytics />
+              <React.Suspense fallback={<div style={{ color: '#CFCFCF' }}>Loading analytics...</div>}>
+                <CustomerAnalytics />
+              </React.Suspense>
               <AlertsPanel />
             </div>
           </div>

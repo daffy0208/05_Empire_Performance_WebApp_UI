@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import Image from '../../../components/AppImage';
 import Icon from '../../../components/AppIcon';
 import { supabase } from '../../../lib/supabase';
 
@@ -231,7 +232,7 @@ const CoachSpotlight = () => {
               >
                 {/* Avatar - h-16 w-16 as required */}
                 <div className="relative mb-4">
-                  <img 
+                  <Image 
                     className="h-16 w-16 mx-auto rounded-full object-cover ring-1 ring-[#2A2A2E] group-hover:ring-[#C9A43B]/60 transition-all" 
                     src={coach?.image} 
                     alt={coach?.name}
