@@ -1,0 +1,10 @@
+nohup: ignoring input
+
+> empire-performance-coaching@0.1.0 start
+> vite
+
+
+  VITE v5.0.0  ready in 399 ms
+
+  ➜  Local:   http://localhost:4028/
+  ➜  Network: http://172.30.0.2:4028/
