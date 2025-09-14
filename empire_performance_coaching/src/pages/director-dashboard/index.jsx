@@ -1,6 +1,8 @@
 import React from 'react';
 
 import AuthGuard from '../../components/ui/AuthGuard';
+import SEO from '../../components/SEO';
+import DashboardLayout from '../../components/layouts/DashboardLayout';
 
 
 import MetricsCard from './components/MetricsCard';
@@ -15,7 +17,8 @@ import Icon from '../../components/AppIcon';
 
 const DirectorDashboard = () => {
   return (
-    <div className="min-h-screen bg-[#0E0E10]">
+    <DashboardLayout>
+      <SEO title="Director Dashboard - Empire Performance Coaching" canonical="/director-dashboard" />
       {/* Header */}
       <header className="bg-gradient-to-r from-[#0E0E10] to-[#141416] border-b border-[#2A2A2E] px-6 py-4">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
@@ -57,7 +60,7 @@ const DirectorDashboard = () => {
       </header>
 
       {/* Role-gated access for director only */}
-      <AuthGuard requiredRole="director">
+      <AuthGuard allowedRoles={["director"]}>
         <div className="max-w-[1440px] mx-auto px-6 md:px-8 py-8">
           {/* Key Performance Indicators */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -125,7 +128,7 @@ const DirectorDashboard = () => {
           </div>
         </div>
       </AuthGuard>
-    </div>
+    </DashboardLayout>
   );
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import Icon from '../AppIcon';
 
-const AuthGuard = ({ children, requireAuth = true, allowedRoles = null }) => {
+const AuthGuard = ({ children, requireAuth = true, allowedRoles = null, requiredRole = null }) => {
   const { user, userProfile, loading } = useAuth();
 
   // Show loading state
@@ -37,10 +37,11 @@ const AuthGuard = ({ children, requireAuth = true, allowedRoles = null }) => {
   }
 
   // Check role requirements
-  if (requireAuth && allowedRoles && userProfile) {
-    const hasAllowedRole = Array.isArray(allowedRoles) 
-      ? allowedRoles?.includes(userProfile?.role)
-      : allowedRoles === userProfile?.role;
+  const effectiveAllowed = requiredRole ? [requiredRole] : allowedRoles;
+  if (requireAuth && effectiveAllowed && userProfile) {
+    const hasAllowedRole = Array.isArray(effectiveAllowed) 
+      ? effectiveAllowed?.includes(userProfile?.role)
+      : effectiveAllowed === userProfile?.role;
 
     if (!hasAllowedRole) {
       return (
@@ -50,7 +51,7 @@ const AuthGuard = ({ children, requireAuth = true, allowedRoles = null }) => {
             <h2 className="text-2xl font-bold text-foreground mb-2">Access Denied</h2>
             <p className="text-muted-foreground mb-6">
               You don't have permission to access this page. 
-              Required role: {Array.isArray(allowedRoles) ? allowedRoles?.join(', ') : allowedRoles}
+              Required role: {Array.isArray(effectiveAllowed) ? effectiveAllowed?.join(', ') : effectiveAllowed}
             </p>
             <a 
               href="/" 

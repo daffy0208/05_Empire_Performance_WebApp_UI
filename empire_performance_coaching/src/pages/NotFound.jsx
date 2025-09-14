@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'components/ui/Button';
 import Icon from 'components/AppIcon';
+import SEO from 'components/SEO';
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background p-4">
+      <SEO title="Page Not Found - Empire Performance Coaching" description="The page you're looking for does not exist." canonical="/404" />
       <div className="text-center max-w-md">
         <div className="flex justify-center mb-6">
           <div className="relative">

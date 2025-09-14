@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import SEO from '../../components/SEO';
+import DashboardLayout from '../../components/layouts/DashboardLayout';
 import AuthGuard from '../../components/ui/AuthGuard';
 import CoachHeader from './components/CoachHeader';
 import QuickStats from './components/QuickStats';
@@ -188,11 +190,9 @@ const CoachDashboard = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Coach Dashboard - Empire Performance Coaching</title>
-      </Helmet>
-      <AuthGuard requiredRole="coach">
-        <div className="min-h-screen bg-[#0E0E10]">
+      <SEO title="Coach Dashboard - Empire Performance Coaching" canonical="/coach-dashboard" />
+      <AuthGuard allowedRoles={["coach"]}>
+        <DashboardLayout>
           <CoachHeader 
             coachData={coachData}
             coachName={coachData?.user_profiles?.full_name || 'Coach'}
@@ -395,7 +395,7 @@ const CoachDashboard = () => {
               </div>
             </div>
           )}
-        </div>
+        </DashboardLayout>
       </AuthGuard>
     </>
   );

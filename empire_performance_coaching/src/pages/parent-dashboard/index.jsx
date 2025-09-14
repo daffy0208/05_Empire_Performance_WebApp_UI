@@ -10,6 +10,8 @@ import QuickActionsPanel from './components/QuickActionsPanel';
 import CalendarWidget from './components/CalendarWidget';
 import Icon from '../../components/AppIcon';
 import Button from '../../components/ui/Button';
+import SEO from '../../components/SEO';
+import DashboardLayout from '../../components/layouts/DashboardLayout';
 
 const ParentDashboard = () => {
   const { user, userProfile, signOut } = useAuth();
@@ -212,7 +214,8 @@ const ParentDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <DashboardLayout>
+      <SEO title="Parent Dashboard - Empire Performance Coaching" canonical="/parent-dashboard" />
       <RoleNavigation userRole="parent" userName={parentData?.name} onLogout={handleLogout} />
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <WelcomeHeader 
@@ -411,7 +414,7 @@ const ParentDashboard = () => {
           )}
         </div>
       </main>
-    </div>
+    </DashboardLayout>
   );
 };
 
