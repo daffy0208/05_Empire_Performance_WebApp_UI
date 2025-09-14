@@ -109,6 +109,7 @@ const RoleNavigation = ({ userRole = 'parent', userName = 'John Smith', onLogout
                 src="/assets/images/FB_IMG_1755863428093-1756598640896.jpg" 
                 alt="Empire Performance Coaching" 
                 className="h-8 w-auto object-contain bg-white rounded p-1"
+                loading="lazy" decoding="async"
               />
               <div>
                 <span className="text-lg font-header font-bold">{config?.title}</span>

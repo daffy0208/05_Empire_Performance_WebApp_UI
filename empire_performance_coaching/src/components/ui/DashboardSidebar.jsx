@@ -119,6 +119,7 @@ const DashboardSidebar = ({
                   src="/assets/images/1000022092-1756649639106.png" 
                   alt="Empire Performance Coaching" 
                   className="h-8 sm:h-10 md:h-12 w-auto object-contain"
+                  loading="lazy" decoding="async"
                   style={{ filter: 'sepia(100%) saturate(200%) hue-rotate(35deg) brightness(1.2) contrast(1.1) invert(1)' }}
                 />
                 <div>
@@ -135,6 +136,7 @@ const DashboardSidebar = ({
                 src="/assets/images/1000022092-1756649639106.png" 
                 alt="Empire Performance Coaching" 
                 className="h-6 sm:h-8 w-auto object-contain"
+                loading="lazy" decoding="async"
                 style={{ filter: 'sepia(100%) saturate(200%) hue-rotate(35deg) brightness(1.2) contrast(1.1) invert(1)' }}
               />
             )}

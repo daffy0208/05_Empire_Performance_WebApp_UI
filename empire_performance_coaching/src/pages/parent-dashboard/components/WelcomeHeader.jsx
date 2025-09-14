@@ -18,6 +18,7 @@ const WelcomeHeader = ({ parentName, children }) => {
                 src="/assets/images/Empire_Logo-1756660728269.png" 
                 alt="Empire Performance Coaching" 
                 className="h-8 w-auto object-contain"
+                loading="lazy" decoding="async"
               />
               <div className="ml-2">
                 <div className="text-[#C9A43B] font-bold text-sm tracking-wide">

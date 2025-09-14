@@ -46,6 +46,7 @@ const FooterSection = () => {
                 src="/assets/images/Empire_Logo-1756660728269.png" 
                 alt="Empire Performance Coaching" 
                 className="h-8 w-auto object-contain"
+                loading="lazy" decoding="async"
               />
               <div className="ml-3">
                 <div className="text-[#C9A43B] font-bold text-lg tracking-wide">
