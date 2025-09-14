@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Empire Performance Brand System */
+:root {
+  /* Updated brand color system */
+  --brand-black: #0E0E10;
+  --brand-gold: #C9A43B;
+  --brand-head: #F5F5F5;
+  --brand-text: #CFCFCF;
+  --brand-surface: #1A1A1D;
+  --brand-border: #2A2A2E;
+}

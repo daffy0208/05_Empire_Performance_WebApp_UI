@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Empire Performance Coaching Theme - Updated for requirements */
+:root {
+  --empire-black: #000000;
+  --empire-onyx: #0E0E10;
+  --empire-surface-0: #0E0E10;
+  --empire-surface-1: #141416;
+  --empire-surface-2: #1A1A1D;
+  --empire-white: #F5F5F5;
+  --empire-offwhite: #CFCFCF;
+  --empire-gold: #C9A43B;
+  --empire-gold-muted: #B8963A;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-empire-black text-empire-offwhite;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  
+  .font-header {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .font-header-alt {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-body-alt {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  /* Hero Section - Single controlled watermark */
+  .hero { 
+    position: relative; 
+    background-color: #0E0E10; 
+  }
+
+  /* Single subtle watermark that never blocks text */
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('/assets/watermark.svg') center/contain no-repeat;
+    opacity: .06;           /* subtle opacity for clean background */
+    pointer-events: none;   /* never blocks clicks */
+    mix-blend-mode: normal; /* avoid extra darkening */
+  }
+
+  /* Ensure hero content floats above the watermark */
+  .hero > .hero-content { 
+    position: relative; 
+    z-index: 10; 
+  }
+  
+  /* Empire Football Hexagon Pattern (subtle) */
+  .empire-hexagon-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A227' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  /* Gold keyline dividers */
+  .empire-gold-divider {
+    height: 4px;
+    background-color: var(--empire-gold);
+  }
+  
+  /* Heartbeat line effect */
+  .heartbeat-line {
+    position: relative;
+  }
+  
+  .heartbeat-line::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #C9A227 0%, #E6B800 50%, #C9A227 100%);
+    clip-path: polygon(0 50%, 8% 50%, 12% 10%, 20% 90%, 28% 10%, 36% 90%, 44% 50%, 100% 50%, 100% 100%, 0 100%);
+    animation: heartbeat-pulse 2s infinite;
+  }
+  
+  @keyframes heartbeat-pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+  
+  @keyframes animate-heartbeat {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+  }
+  
+  .animate-heartbeat {
+    animation: animate-heartbeat 2s infinite;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .transition-smooth {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  
+  .shadow-elevation-1 {
+    box-shadow: var(--shadow-default);
+  }
+  
+  .shadow-elevation-2 {
+    box-shadow: var(--shadow-md);
+  }
+  
+  .shadow-elevation-3 {
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Empire Performance specific utilities */
+  .empire-surface-0 {
+    background-color: var(--empire-surface-0);
+  }
+  
+  .empire-surface-1 {
+    background-color: var(--empire-surface-1);
+  }
+  
+  .empire-surface-2 {
+    background-color: var(--empire-surface-2);
+  }
+  
+  .empire-white {
+    color: var(--empire-white);
+  }
+  
+  .empire-offwhite {
+    color: var(--empire-offwhite);
+  }
+  
+  .empire-gold {
+    color: var(--empire-gold);
+  }
+  
+  /* Updated component classes for improved time slot contrast */
+  .time-slot-default {
+    background-color: #1A1A1D;
+    color: #CFCFCF;
+    border: 1px solid #2A2A2E;
+  }
+  
+  .time-slot-hover {
+    border-color: #C9A43B;
+  }
+  
+  .time-slot-selected {
+    background-color: #C9A43B;
+    color: #000000;
+    font-weight: 600;
+  }
+  
+  .time-slot-disabled {
+    background-color: #141416;
+    color: #6B6B75;
+    border-color: #1E1E22;
+    cursor: not-allowed;
+  }
+  
+  /* Enhanced focus rings for AA compliance */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-[#C9A43B]/70 focus:ring-offset-2 focus:ring-offset-[#0E0E10];
+  }
+  
+  /* Navigation improvements */
+  .nav-link {
+    @apply transition-all duration-150 hover:text-[#C9A43B] focus:outline-none focus:ring-2 focus:ring-[#C9A43B]/50 rounded px-2 py-1;
+  }
+  
+  /* Button improvements for accessibility */
+  .btn-primary {
+    @apply bg-[#C9A43B] text-[#000000] hover:bg-[#C9A43B]/90 px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-[#C9A43B]/70 focus:ring-offset-2 focus:ring-offset-[#0E0E10];
+  }
+  
+  .empire-card  {
+    @apply bg-gradient-to-br from-[#1A1A1D] to-[#141416] border border-[#2A2A2E] rounded-xl p-6 hover:border-[#C9A43B]/40 hover:bg-gradient-to-br hover:from-[#1A1A1D] hover:to-[#191919] transition-all duration-200 cursor-pointer;
+  }
+  
+  /* Improved accessibility for keyboard navigation */
+  .keyboard-navigable {
+    @apply focus-visible:ring-2 focus-visible:ring-[#C9A43B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0E0E10] focus-visible:outline-none;
+  }
+  
+  /* Line clamping for coach bios */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Loading states */
+  .loading-shimmer {
+    background: linear-gradient(90deg, #1A1A1D 25%, #2A2A2E 50%, #1A1A1D 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  /* Mobile-first responsive utilities */
+  .sticky-mobile {
+    @apply md:relative md:top-auto;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+  }
+  
+  /* Full-bleed sections */
+  .full-bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+  }
+  
+  /* Ensure proper contrast ratios for AA compliance */
+  .contrast-aa {
+    color: #F5F5F5; /* 4.5:1 contrast ratio on #0E0E10 background */
+  }
+  
+  .contrast-aa-muted {
+    color: #CFCFCF; /* 3:1 contrast ratio minimum */
+  }
+}
