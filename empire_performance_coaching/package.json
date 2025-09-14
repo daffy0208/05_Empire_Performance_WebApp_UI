@@ -103,6 +103,7 @@
     "jsdom": "^24.1.0",
     
     "@playwright/test": "^1.47.2",
-    "vite-plugin-pwa": "^0.20.5"
+    "vite-plugin-pwa": "^0.20.5",
+    "typescript": "^5.5.4"
   }
 }
