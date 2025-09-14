@@ -3,17 +3,16 @@ import { BrowserRouter, Route, Routes as RouterRoutes } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
 import ScrollToTop from './components/ScrollToTop';
 
-// Page Imports
-import PublicLandingPage from './pages/public-landing-page';
-import MultiStepBookingFlow from './pages/multi-step-booking-flow';
-import LoginRegister from './pages/login-register';
-import ParentDashboard from './pages/parent-dashboard';
-import CoachDashboard from './pages/coach-dashboard';
-import DirectorDashboard from './pages/director-dashboard';
-import NotFound from './pages/NotFound';
+// Page Imports (lazy-loaded)
+const PublicLandingPage = React.lazy(() => import('./pages/public-landing-page'));
+const MultiStepBookingFlow = React.lazy(() => import('./pages/multi-step-booking-flow'));
+const LoginRegister = React.lazy(() => import('./pages/login-register'));
+const ParentDashboard = React.lazy(() => import('./pages/parent-dashboard'));
+const CoachDashboard = React.lazy(() => import('./pages/coach-dashboard'));
+const DirectorDashboard = React.lazy(() => import('./pages/director-dashboard'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 // Component Imports
-import { AuthProvider } from './contexts/AuthContext';
 import RoleBasedRouter from './components/ui/RoleBasedRouter';
 
 function ErrorFallback({ error, resetErrorBoundary }) {
@@ -41,7 +40,7 @@ function ErrorFallback({ error, resetErrorBoundary }) {
             Go Home
           </button>
         </div>
-        {process.env?.NODE_ENV === 'development' && (
+        {import.meta.env?.DEV && (
           <details className="mt-6 text-left">
             <summary className="cursor-pointer text-sm" style={{ color: '#CFCFCF' }}>
               Error Details (Development)
@@ -63,8 +62,8 @@ function Routes() {
         FallbackComponent={ErrorFallback}
         onReset={() => window.location?.reload()}
       >
-        <AuthProvider>
-          <ScrollToTop />
+        <ScrollToTop />
+        <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center" style={{ color: '#CFCFCF' }}>Loading...</div>}>
           <RouterRoutes>
             {/* Public Routes */}
             <Route path="/" element={<PublicLandingPage />} />
@@ -83,7 +82,7 @@ function Routes() {
             {/* Fallback Route */}
             <Route path="*" element={<NotFound />} />
           </RouterRoutes>
-        </AuthProvider>
+        </React.Suspense>
       </ErrorBoundary>
     </BrowserRouter>
   );

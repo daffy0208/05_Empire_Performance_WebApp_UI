@@ -10,6 +10,17 @@ export default defineConfig({
   build: {
     outDir: "build",
     chunkSizeWarningLimit: 2000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom"],
+          router: ["react-router-dom"],
+          supabase: ["@supabase/supabase-js", "@supabase/auth-ui-react"],
+          charts: ["recharts", "d3"],
+          ui: ["framer-motion", "lucide-react", "class-variance-authority", "clsx"],
+        }
+      }
+    }
   },
   plugins: [tsconfigPaths(), react(), tagger()],
   server: {

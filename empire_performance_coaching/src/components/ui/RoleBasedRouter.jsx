@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 
@@ -12,13 +12,13 @@ const RoleBasedRouter = () => {
       const userRole = user?.user_metadata?.role || user?.app_metadata?.role || 'parent';
       
       switch (userRole) {
-        case 'director': navigate('/director-dashboard');
+        case 'director': navigate('/director-dashboard', { replace: true });
           break;
-        case 'coach': navigate('/coach-dashboard');
+        case 'coach': navigate('/coach-dashboard', { replace: true });
           break;
         case 'parent':
         default:
-          navigate('/parent-dashboard');
+          navigate('/parent-dashboard', { replace: true });
           break;
       }
     }
