@@ -7,6 +7,7 @@ import RegisterForm from './components/RegisterForm';
 import SocialAuth from './components/SocialAuth';
 import ForgotPasswordModal from './components/ForgotPasswordModal';
 import SecurityBadges from './components/SecurityBadges';
+import { z } from 'zod';
 
 const LoginRegister = () => {
   const navigate = useNavigate();
@@ -65,64 +66,45 @@ const LoginRegister = () => {
     }));
   };
 
+  const loginSchema = z.object({
+    email: z.string().min(1, 'Email is required').email('Please enter a valid email'),
+    password: z.string().min(1, 'Password is required')
+  });
+
   const validateLoginForm = () => {
-    const newErrors = {};
-
-    if (!formData?.email) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/?.test(formData?.email)) {
-      newErrors.email = 'Please enter a valid email';
+    const result = loginSchema.safeParse({ email: formData?.email, password: formData?.password });
+    if (!result.success) {
+      const newErrors = Object.fromEntries(result.error.issues.map(i => [i.path[0], i.message]));
+      setErrors(newErrors);
+      return false;
     }
-
-    if (!formData?.password) {
-      newErrors.password = 'Password is required';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors)?.length === 0;
+    setErrors({});
+    return true;
   };
 
+  const registerSchema = z.object({
+    firstName: z.string().min(1, 'First name is required'),
+    lastName: z.string().min(1, 'Last name is required'),
+    email: z.string().min(1, 'Email is required').email('Please enter a valid email'),
+    phone: z.string().min(1, 'Phone number is required'),
+    role: z.enum(['parent', 'coach']),
+    password: z.string().min(6, 'Password must be at least 6 characters'),
+    confirmPassword: z.string().min(1, 'Please confirm your password'),
+    agreeToTerms: z.literal(true, { errorMap: () => ({ message: 'You must agree to the terms and conditions' }) }),
+  }).refine((data) => data.password === data.confirmPassword, {
+    message: 'Passwords do not match',
+    path: ['confirmPassword']
+  });
+
   const validateRegisterForm = () => {
-    const newErrors = {};
-
-    if (!formData?.firstName) {
-      newErrors.firstName = 'First name is required';
+    const result = registerSchema.safeParse(formData);
+    if (!result.success) {
+      const newErrors = Object.fromEntries(result.error.issues.map(i => [i.path[0], i.message]));
+      setErrors(newErrors);
+      return false;
     }
-
-    if (!formData?.lastName) {
-      newErrors.lastName = 'Last name is required';
-    }
-
-    if (!formData?.email) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/?.test(formData?.email)) {
-      newErrors.email = 'Please enter a valid email';
-    }
-
-    if (!formData?.phone) {
-      newErrors.phone = 'Phone number is required';
-    } else if (!/^\(\d{3}\)\s\d{3}-\d{4}$/?.test(formData?.phone)) {
-      newErrors.phone = 'Please enter a valid phone number';
-    }
-
-    if (!formData?.password) {
-      newErrors.password = 'Password is required';
-    } else if (formData?.password?.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
-    }
-
-    if (!formData?.confirmPassword) {
-      newErrors.confirmPassword = 'Please confirm your password';
-    } else if (formData?.password !== formData?.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
-    }
-
-    if (!formData?.agreeToTerms) {
-      newErrors.agreeToTerms = 'You must agree to the terms and conditions';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors)?.length === 0;
+    setErrors({});
+    return true;
   };
 
   const handleLogin = async (e) => {

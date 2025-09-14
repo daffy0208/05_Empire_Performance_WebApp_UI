@@ -23,6 +23,12 @@ export default defineConfig({
     }
   },
   plugins: [tsconfigPaths(), react(), tagger()],
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['./vitest.setup.ts'],
+    include: ['src/**/*.{test,spec}.{js,jsx,ts,tsx}'],
+    exclude: ['node_modules/**', 'dist/**', 'build/**', 'tests/**']
+  },
   server: {
     port: "4028",
     host: "0.0.0.0",
