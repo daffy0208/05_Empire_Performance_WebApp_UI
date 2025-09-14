@@ -15,6 +15,8 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
   const [loadingTimeSlots, setLoadingTimeSlots] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
 
+  const isSupabaseConfigured = Boolean(import.meta.env?.VITE_SUPABASE_URL && import.meta.env?.VITE_SUPABASE_ANON_KEY);
+
   const today = new Date();
   const currentYear = currentMonth?.getFullYear();
   const currentMonthIndex = currentMonth?.getMonth();
@@ -25,62 +27,58 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
     
     setLoadingTimeSlots(true);
     try {
-      const monthStart = startOfMonth(date);
-      const monthEnd = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-      monthEnd?.setHours(23, 59, 59, 999);
+      let potentialSlots = [];
+      if (isSupabaseConfigured) {
+        const monthStart = startOfMonth(date);
+        const monthEnd = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+        monthEnd?.setHours(23, 59, 59, 999);
 
-      // Query availability by range and status (no day_of_week filter)
-      const { data: availability, error } = await supabase?.from('coach_availability')?.select(`
-          id,
-          coach_id,
-          start_time,
-          end_time,
-          location,
-          is_active,
-          coaches (
-            user_profiles (
-              full_name
-            )
-          )
-        `)?.eq('is_active', true)?.gte('created_at', monthStart?.toISOString())?.lte('created_at', monthEnd?.toISOString());
+        const { data: availability, error } = await supabase?.from('coach_availability')?.select(`
+            id,
+            coach_id,
+            start_time,
+            end_time,
+            location,
+            is_active
+          `)?.eq('is_active', true)?.gte('created_at', monthStart?.toISOString())?.lte('created_at', monthEnd?.toISOString());
 
-      if (error) {
-        console.error('Error fetching availability:', error);
-        setAvailableTimeSlots([]);
-        return;
-      }
+        if (error) {
+          console.error('Error fetching availability:', error);
+        }
 
-      // Transform availability data to time slots for selected date
-      const dayOfWeek = date?.getDay();
-      const potentialSlots = [];
-
-      // Generate potential time slots (8 AM to 8 PM, hourly) for any day with availability
-      for (let hour = 8; hour <= 20; hour++) {
-        const slotTime = new Date(date);
-        slotTime?.setHours(hour, 0, 0, 0);
-        
-        // Check if there's availability for this time slot
-        const hasAvailability = availability?.some(slot => {
-          const slotStart = new Date(`1970-01-01T${slot?.start_time}`);
-          const slotEnd = new Date(`1970-01-01T${slot?.end_time}`);
-          const currentHour = slotTime?.getHours();
-          
-          return currentHour >= slotStart?.getHours() && currentHour < slotEnd?.getHours();
-        });
-
-        if (hasAvailability) {
+        for (let hour = 8; hour <= 20; hour++) {
+          const slotTime = new Date(date);
+          slotTime?.setHours(hour, 0, 0, 0);
+          const hasAvailability = availability?.some(slot => {
+            const slotStart = new Date(`1970-01-01T${slot?.start_time}`);
+            const slotEnd = new Date(`1970-01-01T${slot?.end_time}`);
+            const currentHour = slotTime?.getHours();
+            return currentHour >= slotStart?.getHours() && currentHour < slotEnd?.getHours();
+          });
+          if (hasAvailability) {
+            const endTime = new Date(slotTime);
+            endTime?.setHours(hour + 1, 0, 0, 0);
+            potentialSlots?.push({
+              id: `${date?.toDateString()}-${hour}`,
+              start_time: slotTime,
+              end_time: endTime,
+              display_time: slotTime?.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }),
+              available: true
+            });
+          }
+        }
+      } else {
+        // Fallback slots when Supabase isn't configured: 9 AM - 5 PM hourly
+        for (let hour = 9; hour <= 17; hour++) {
+          const slotTime = new Date(date);
+          slotTime?.setHours(hour, 0, 0, 0);
           const endTime = new Date(slotTime);
           endTime?.setHours(hour + 1, 0, 0, 0);
-          
           potentialSlots?.push({
             id: `${date?.toDateString()}-${hour}`,
             start_time: slotTime,
             end_time: endTime,
-            display_time: slotTime?.toLocaleTimeString('en-US', {
-              hour: 'numeric',
-              minute: '2-digit',
-              hour12: true
-            }),
+            display_time: slotTime?.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }),
             available: true
           });
         }
@@ -98,36 +96,38 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
   // Get available dates from availability data
   const getAvailableDates = async (month) => {
     try {
-      const monthStart = startOfMonth(month);
-      const monthEnd = new Date(month.getFullYear(), month.getMonth() + 1, 0);
-      
-      const { data: availability, error } = await supabase?.from('coach_availability')?.select('day_of_week, location')?.eq('is_active', true);
+      const results = [];
+      const daysInMonthLocal = new Date(month.getFullYear(), month.getMonth() + 1, 0)?.getDate();
 
-      if (error) {
-        console.error('Error fetching availability:', error);
-        return [];
-      }
-
-      // Generate available dates for the month based on day_of_week availability
-      const availableDates = [];
-      const daysInMonth = new Date(month.getFullYear(), month.getMonth() + 1, 0)?.getDate();
-      
-      for (let day = 1; day <= daysInMonth; day++) {
-        const date = new Date(month.getFullYear(), month.getMonth(), day);
-        const dayOfWeek = date?.getDay();
-        
-        // Check if there's availability for this day of week
-        const hasAvailability = availability?.some(slot => 
-          slot?.day_of_week === dayOfWeek &&
-          (!selectedLocation?.name || slot?.location === selectedLocation?.name)
-        );
-        
-        if (hasAvailability && date >= today) {
-          availableDates?.push(date);
+      if (isSupabaseConfigured) {
+        const { data: availability, error } = await supabase?.from('coach_availability')?.select('day_of_week, location')?.eq('is_active', true);
+        if (error) {
+          console.error('Error fetching availability:', error);
+        }
+        for (let day = 1; day <= daysInMonthLocal; day++) {
+          const date = new Date(month.getFullYear(), month.getMonth(), day);
+          const dayOfWeek = date?.getDay();
+          const hasAvailability = availability?.some(slot => 
+            slot?.day_of_week === dayOfWeek &&
+            (!selectedLocation?.name || slot?.location === selectedLocation?.name)
+          );
+          if (hasAvailability && date >= today) {
+            results?.push(date);
+          }
+        }
+      } else {
+        // Fallback: allow all future weekdays (Mon-Fri)
+        for (let day = 1; day <= daysInMonthLocal; day++) {
+          const date = new Date(month.getFullYear(), month.getMonth(), day);
+          const dow = date?.getDay();
+          const isWeekday = dow !== 0 && dow !== 6;
+          if (isWeekday && date >= today) {
+            results?.push(date);
+          }
         }
       }
-      
-      return availableDates;
+
+      return results;
     } catch (error) {
       console.error('Error getting available dates:', error);
       return [];
