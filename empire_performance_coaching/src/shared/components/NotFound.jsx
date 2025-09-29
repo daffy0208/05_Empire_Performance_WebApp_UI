@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from 'components/ui/Button';
-import Icon from 'components/AppIcon';
-import SEO from 'components/SEO';
+import Button from './ui/Button';
+import Icon from './AppIcon';
+import SEO from './SEO';
 
 const NotFound = () => {
   const navigate = useNavigate();

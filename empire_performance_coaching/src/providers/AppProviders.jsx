@@ -1,8 +1,8 @@
 import React from 'react';
-import { AuthProvider } from '../contexts/AuthContext';
-import { ToastProvider } from '../components/ui/ToastProvider';
-import ErrorBoundary from '../components/ErrorBoundary';
-import { initializeErrorMonitoring, setupGlobalErrorHandling, logger } from '../lib/monitoring';
+import { AuthProvider } from '../features/auth/AuthContext';
+import { ToastProvider } from '../shared/components/ui/ToastProvider';
+import ErrorBoundary from '../shared/components/ErrorBoundary';
+import { initializeErrorMonitoring, setupGlobalErrorHandling, logger } from '../shared/lib/monitoring';
 
 // Initialize error monitoring on app start
 initializeErrorMonitoring();
