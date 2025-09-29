@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Icon from '../../../components/AppIcon';
-import Button from '../../../components/ui/Button';
-import Input from '../../../components/ui/Input';
-import Select from '../../../components/ui/Select';
+import Icon from '../../../../shared/components/AppIcon';
+import Button from '../../../../shared/components/ui/Button';
+import Input from '../../../../shared/components/ui/Input';
+import Select from '../../../../shared/components/ui/Select';
 
-import { supabase } from '../../../lib/supabase';
+import { supabase } from '../../../../shared/lib/supabase';
 
 const PlayerDetailsStep = ({ playerDetails, onPlayerDetailsChange, user }) => {
   const [athletes, setAthletes] = useState([]);

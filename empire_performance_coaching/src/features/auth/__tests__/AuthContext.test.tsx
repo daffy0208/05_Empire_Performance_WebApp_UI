@@ -1,11 +1,11 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, waitFor, act } from '@testing-library/react';
 import { AuthProvider, useAuth } from '../AuthContext';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '../../shared/lib/supabase';
 import { createMockUser, createMockUserProfile } from '../../utils/test-utils';
 
 // Mock the supabase module
-vi.mock('../../lib/supabase', () => ({
+vi.mock('../../shared/lib/supabase', () => ({
   supabase: {
     auth: {
       getSession: vi.fn(),

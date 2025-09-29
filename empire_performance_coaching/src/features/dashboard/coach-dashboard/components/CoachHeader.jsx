@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '../../../components/ui/Button';
+import Button from '../../../../shared/components/ui/Button';
 
 const CoachHeader = ({ coachName, currentDate, todaySessionCount, notifications = [] }) => {
   const formatDate = (date) => {

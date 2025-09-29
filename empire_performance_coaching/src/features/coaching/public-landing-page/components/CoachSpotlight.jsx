@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import Image from '../../../components/AppImage';
-import Icon from '../../../components/AppIcon';
-import { supabase } from '../../../lib/supabase';
+import Image from '../../../../shared/components/AppImage';
+import Icon from '../../../../shared/components/AppIcon';
+import { supabase } from '../../../../shared/lib/supabase';
 
 const CoachSpotlight = () => {
   const navigate = useNavigate();

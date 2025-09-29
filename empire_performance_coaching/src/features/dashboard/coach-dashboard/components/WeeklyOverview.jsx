@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Icon from '../../../components/AppIcon';
-import Button from '../../../components/ui/Button';
+import Icon from '../../../../shared/components/AppIcon';
+import Button from '../../../../shared/components/ui/Button';
 
 const WeeklyOverview = ({ weekData, currentDate }) => {
   const [selectedWeek, setSelectedWeek] = useState(0); // 0 = current week, 1 = next week

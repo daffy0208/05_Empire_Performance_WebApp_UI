@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Input from '../../../components/ui/Input';
-import Button from '../../../components/ui/Button';
-import Icon from '../../../components/AppIcon';
+import Input from '../../../../shared/components/ui/Input';
+import Button from '../../../../shared/components/ui/Button';
+import Icon from '../../../../shared/components/AppIcon';
 
 const ForgotPasswordModal = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState('');

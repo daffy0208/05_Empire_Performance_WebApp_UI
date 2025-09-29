@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../auth/AuthContext';
 import Icon from '../AppIcon';
 
 const AuthGuard = ({ children, requireAuth = true, allowedRoles = null, requiredRole = null }) => {

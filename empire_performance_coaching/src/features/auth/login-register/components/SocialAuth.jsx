@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Icon from '../../../components/AppIcon';
-import { supabase } from '../../../lib/supabase';
+import Icon from '../../../../shared/components/AppIcon';
+import { supabase } from '../../../shared/lib/supabase';
 
 const SocialAuth = () => {
   const [isLoading, setIsLoading] = useState({

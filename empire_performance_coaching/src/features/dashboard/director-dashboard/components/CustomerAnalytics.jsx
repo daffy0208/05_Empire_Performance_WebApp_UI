@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
 
-import Button from '../../../components/ui/Button';
+import Button from '../../../../shared/components/ui/Button';
 
 const CustomerAnalytics = () => {
   const [timeRange, setTimeRange] = useState('6months');

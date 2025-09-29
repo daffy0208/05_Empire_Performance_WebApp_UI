@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import Icon from '../../../components/AppIcon';
+import Icon from '../../../../shared/components/AppIcon';
 
 const TestimonialsSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

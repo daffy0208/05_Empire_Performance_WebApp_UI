@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Icon from '../../../components/AppIcon';
-import Image from '../../../components/AppImage';
-import Button from '../../../components/ui/Button';
+import Icon from '../../../../shared/components/AppIcon';
+import Image from '../../../../shared/components/AppImage';
+import Button from '../../../../shared/components/ui/Button';
 
 const BookingSeriesCard = ({ booking, onModify, onViewPayments, onPause }) => {
   const [isExpanded, setIsExpanded] = useState(false);

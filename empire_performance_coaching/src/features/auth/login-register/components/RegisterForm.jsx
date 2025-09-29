@@ -1,9 +1,9 @@
 import React from 'react';
-import Input from '../../../components/ui/Input';
-import Button from '../../../components/ui/Button';
-import Select from '../../../components/ui/Select';
-import { Checkbox } from '../../../components/ui/Checkbox';
-import PasswordStrength from '../../../components/ui/PasswordStrength';
+import Input from '../../../../shared/components/ui/Input';
+import Button from '../../../../shared/components/ui/Button';
+import Select from '../../../../shared/components/ui/Select';
+import { Checkbox } from '../../../../shared/components/ui/Checkbox';
+import PasswordStrength from '../../../../shared/components/ui/PasswordStrength';
 
 const RegisterForm = ({ 
   formData, 

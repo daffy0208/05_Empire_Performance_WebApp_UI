@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import PublicHeader from '../../components/ui/PublicHeader';
+import PublicHeader from '../../../shared/components/ui/PublicHeader';
 import HeroSection from './components/HeroSection';
 import LocationsSection from './components/LocationsSection';
 import ValuesSection from './components/ValuesSection';

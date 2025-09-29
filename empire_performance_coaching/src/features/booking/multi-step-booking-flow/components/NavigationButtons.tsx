@@ -1,12 +1,24 @@
 import React from 'react';
-import { btnPrimary, btnSecondary } from '../../../components/ui/Button';
-import Icon from '../../../components/AppIcon';
+import Button, { btnPrimary, btnSecondary } from '../../../../shared/components/ui/Button';
+import Icon from '../../../../shared/components/AppIcon';
 
-const NavigationButtons = ({ 
-  currentStep, 
-  totalSteps, 
-  onNext, 
-  onPrevious, 
+interface NavigationButtonsProps {
+  currentStep: number;
+  totalSteps: number;
+  onNext: () => void;
+  onPrevious: () => void;
+  onCancel?: () => void;
+  isNextDisabled?: boolean;
+  isLoading?: boolean;
+  nextButtonText?: string;
+  showCancel?: boolean;
+}
+
+const NavigationButtons: React.FC<NavigationButtonsProps> = ({
+  currentStep,
+  totalSteps,
+  onNext,
+  onPrevious,
   onCancel,
   isNextDisabled = false,
   isLoading = false,
@@ -20,7 +32,7 @@ const NavigationButtons = ({
     <div className="fixed top-4 right-4 z-50 md:relative md:top-auto md:right-auto md:z-auto">
       {/* Desktop: Top-right positioning */}
       <div className="hidden md:flex items-center space-x-4">
-        {showCancel && (
+        {showCancel && onCancel && (
           <button
             onClick={onCancel}
             className="text-[#CFCFCF] hover:text-[#C9A43B] text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-[#C9A43B]/50 rounded px-3 py-2"
@@ -28,7 +40,7 @@ const NavigationButtons = ({
             Cancel
           </button>
         )}
-        
+
         {currentStep > 1 && (
           <button
             onClick={onPrevious}
@@ -39,7 +51,7 @@ const NavigationButtons = ({
             Previous
           </button>
         )}
-        
+
         <button
           onClick={onNext}
           disabled={isNextDisabled || isLoading}
@@ -58,7 +70,7 @@ const NavigationButtons = ({
       {/* Mobile: Sticky at bottom */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 bg-[#0E0E10] border-t border-[#2A2A2E] p-4">
         <div className="flex items-center justify-between w-full">
-          {showCancel && (
+          {showCancel && onCancel && (
             <button
               onClick={onCancel}
               className="text-[#CFCFCF] hover:text-[#C9A43B] text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-[#C9A43B]/50 rounded px-3 py-2"
@@ -66,7 +78,7 @@ const NavigationButtons = ({
               Cancel
             </button>
           )}
-          
+
           <div className="flex items-center space-x-3">
             {currentStep > 1 && (
               <button
@@ -78,7 +90,7 @@ const NavigationButtons = ({
                 Previous
               </button>
             )}
-            
+
             <button
               onClick={onNext}
               disabled={isNextDisabled || isLoading}

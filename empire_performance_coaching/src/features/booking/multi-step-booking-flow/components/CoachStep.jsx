@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Icon from '../../../components/AppIcon';
-import Image from '../../../components/AppImage';
-import { supabase } from '../../../lib/supabase';
+import Icon from '../../../../shared/components/AppIcon';
+import Image from '../../../../shared/components/AppImage';
+import { supabase } from '../../../../shared/lib/supabase';
 
 const CoachStep = ({ selectedCoach, onCoachSelect, selectedDate, selectedTimeSlot, selectedLocation }) => {
   const [filterSpecialty, setFilterSpecialty] = useState('all');

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import SEO from '../../components/SEO';
-import DashboardLayout from '../../components/layouts/DashboardLayout';
-import AuthGuard from '../../components/ui/AuthGuard';
+import SEO from '../../../shared/components/SEO';
+import DashboardLayout from '../../../shared/components/layouts/DashboardLayout';
+import AuthGuard from '../../../shared/components/ui/AuthGuard';
 import CoachHeader from './components/CoachHeader';
 import QuickStats from './components/QuickStats';
 import TodaysSchedule from './components/TodaysSchedule';
 import UpcomingSchedule from './components/UpcomingSchedule';
 import WeeklyOverview from './components/WeeklyOverview';
-import { supabase } from '../../lib/supabase';
-import { useAuth } from '../../contexts/AuthContext';
-import Icon from '../../components/AppIcon';
+import { supabase } from '../../shared/lib/supabase';
+import { useAuth } from '../../auth/AuthContext';
+import Icon from '../../../shared/components/AppIcon';
 
 
 const CoachDashboard = () => {

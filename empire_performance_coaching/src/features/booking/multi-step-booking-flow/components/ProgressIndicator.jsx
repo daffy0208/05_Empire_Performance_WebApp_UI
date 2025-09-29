@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Icon from '../../../components/AppIcon';
+import Icon from '../../../../shared/components/AppIcon';
 
 const ProgressIndicator = ({ currentStep, totalSteps, stepTitle }) => {
   const steps = [

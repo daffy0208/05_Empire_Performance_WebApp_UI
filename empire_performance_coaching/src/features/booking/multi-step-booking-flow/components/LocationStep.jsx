@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Icon from '../../../components/AppIcon';
-import { supabase } from '../../../lib/supabase';
+import Icon from '../../../../shared/components/AppIcon';
+import { supabase } from '../../../../shared/lib/supabase';
 
 const LocationStep = ({ selectedLocation, onLocationSelect }) => {
   const [locations, setLocations] = useState([]);

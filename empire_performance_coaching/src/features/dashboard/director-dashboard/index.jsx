@@ -1,8 +1,8 @@
 import React from 'react';
 
-import AuthGuard from '../../components/ui/AuthGuard';
-import SEO from '../../components/SEO';
-import DashboardLayout from '../../components/layouts/DashboardLayout';
+import AuthGuard from '../../../shared/components/ui/AuthGuard';
+import SEO from '../../../shared/components/SEO';
+import DashboardLayout from '../../../shared/components/layouts/DashboardLayout';
 
 
 import MetricsCard from './components/MetricsCard';
@@ -12,7 +12,7 @@ import ActivityFeed from './components/ActivityFeed';
 import AlertsPanel from './components/AlertsPanel';
 const BookingPatterns = React.lazy(() => import('./components/BookingPatterns'));
 const CustomerAnalytics = React.lazy(() => import('./components/CustomerAnalytics'));
-import Icon from '../../components/AppIcon';
+import Icon from '../../../shared/components/AppIcon';
 
 
 const DirectorDashboard = () => {

@@ -1,15 +1,36 @@
 import React from 'react';
-import Input from '../../../components/ui/Input';
-import Button from '../../../components/ui/Button';
-import { Checkbox } from '../../../components/ui/Checkbox';
+import Input from '../../../../shared/components/ui/Input';
+import Button from '../../../../shared/components/ui/Button';
+import { Checkbox } from '../../../../shared/components/ui/Checkbox';
 
-const LoginForm = ({ 
-  formData, 
-  errors, 
-  isLoading, 
-  onInputChange, 
-  onSubmit, 
-  onForgotPassword 
+interface LoginFormData {
+  email: string;
+  password: string;
+  rememberMe: boolean;
+}
+
+interface LoginFormErrors {
+  email?: string;
+  password?: string;
+  submit?: string;
+}
+
+interface LoginFormProps {
+  formData: LoginFormData;
+  errors: LoginFormErrors;
+  isLoading: boolean;
+  onInputChange: (event: { target: { name: string; value: string | boolean } }) => void;
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  onForgotPassword: () => void;
+}
+
+const LoginForm: React.FC<LoginFormProps> = ({
+  formData,
+  errors,
+  isLoading,
+  onInputChange,
+  onSubmit,
+  onForgotPassword
 }) => {
   return (
     <form onSubmit={onSubmit} className="space-y-6">
@@ -41,7 +62,7 @@ const LoginForm = ({
             target: { name: 'rememberMe', value: e.target.checked }
           })}
         />
-        
+
         <button
           type="button"
           onClick={onForgotPassword}

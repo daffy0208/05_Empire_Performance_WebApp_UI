@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../../../components/AppIcon';
+import Icon from '../../../../shared/components/AppIcon';
 import { useNavigate } from 'react-router-dom';
 
 const FooterSection = () => {

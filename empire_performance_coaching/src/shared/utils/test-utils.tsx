@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import { AuthProvider } from '../contexts/AuthContext';
+import { AuthProvider } from '../auth/AuthContext';
 import { ToastProvider } from '../components/ui/ToastProvider';
 
 // Custom render function that includes providers

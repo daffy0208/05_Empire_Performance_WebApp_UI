@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Icon from '../../../components/AppIcon';
-import { supabase } from '../../../lib/supabase';
+import Icon from '../../../../shared/components/AppIcon';
+import { supabase } from '../../../../shared/lib/supabase';
 import { startOfMonth, addMonths, subMonths, setHours } from 'date-fns';
 
 // Add monthNames array declaration

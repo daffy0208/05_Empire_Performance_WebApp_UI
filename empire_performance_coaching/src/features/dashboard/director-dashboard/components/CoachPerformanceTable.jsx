@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Icon from '../../../components/AppIcon';
-import Button from '../../../components/ui/Button';
-import Image from '../../../components/AppImage';
+import Icon from '../../../../shared/components/AppIcon';
+import Button from '../../../../shared/components/ui/Button';
+import Image from '../../../../shared/components/AppImage';
 
 const CoachPerformanceTable = () => {
   const [sortBy, setSortBy] = useState('revenue');

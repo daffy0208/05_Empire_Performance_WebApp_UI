@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
-import Icon from '../../../components/AppIcon';
-import Button from '../../../components/ui/Button';
+import Icon from '../../../../shared/components/AppIcon';
+import Button from '../../../../shared/components/ui/Button';
 
 const RevenueChart = () => {
   const [chartType, setChartType] = useState('line');

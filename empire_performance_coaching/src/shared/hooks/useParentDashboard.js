@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
+import { supabase } from '../../shared/lib/supabase';
 
 export const useParentDashboard = (userId) => {
   const [parentData, setParentData] = useState(null);

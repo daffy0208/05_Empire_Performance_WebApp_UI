@@ -1,9 +1,9 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { supabase } from '../lib/supabase';
+import { supabase } from '../../shared/lib/supabase';
 import { handleApiError, AppError, ErrorType, ErrorSeverity } from '../lib/monitoring';
 
 // Mock Supabase client
-vi.mock('../lib/supabase', () => ({
+vi.mock('../../shared/lib/supabase', () => ({
   supabase: {
     from: vi.fn(),
     auth: {

@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, waitFor, act } from '@testing-library/react';
 import { useSupabaseData } from '../useSupabaseData';
-import { supabase } from '../../lib/supabase';
-import { useAuth } from '../../contexts/AuthContext';
+import { supabase } from '../../shared/lib/supabase';
+import { useAuth } from '../../auth/AuthContext';
 import {
   createMockUser,
   createMockUserProfile,
@@ -12,8 +12,8 @@ import {
 } from '../../utils/test-utils';
 
 // Mock dependencies
-vi.mock('../../lib/supabase');
-vi.mock('../../contexts/AuthContext');
+vi.mock('../../shared/lib/supabase');
+vi.mock('../../auth/AuthContext');
 
 const mockSupabase = {
   from: vi.fn(() => ({

@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, waitFor } from '../../../utils/test-utils';
 import userEvent from '@testing-library/user-event';
 import LoginRegister from '../index';
-import { supabase } from '../../../lib/supabase';
+import { supabase } from '../../../shared/lib/supabase';
 import { createMockUser, createMockUserProfile } from '../../../utils/test-utils';
 
 describe('Login Registration Flow Integration', () => {

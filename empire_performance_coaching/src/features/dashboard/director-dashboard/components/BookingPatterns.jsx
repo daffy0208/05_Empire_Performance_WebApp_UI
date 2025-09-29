@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
-import Button from '../../../components/ui/Button';
+import Button from '../../../../shared/components/ui/Button';
 
 const BookingPatterns = () => {
   const [viewType, setViewType] = useState('hourly');

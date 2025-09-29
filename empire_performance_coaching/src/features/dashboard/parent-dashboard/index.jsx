@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../auth/AuthContext';
 import { useParentDashboard } from '../../hooks/useParentDashboard';
-import DashboardLayout from '../../components/layouts/DashboardLayout';
-import SEO from '../../components/SEO';
-import RoleNavigation from '../../components/ui/RoleNavigation';
+import DashboardLayout from '../../../shared/components/layouts/DashboardLayout';
+import SEO from '../../../shared/components/SEO';
+import RoleNavigation from '../../../shared/components/ui/RoleNavigation';
 import WelcomeHeader from './components/WelcomeHeader';
 import UpcomingSessionCard from './components/UpcomingSessionCard';
 import BookingSeriesCard from './components/BookingSeriesCard';
 import InvoiceCard from './components/InvoiceCard';
 import QuickActionsPanel from './components/QuickActionsPanel';
 import CalendarWidget from './components/CalendarWidget';
-import Icon from '../../components/AppIcon';
+import Icon from '../../../shared/components/AppIcon';
 
 const ParentDashboard = () => {
   const navigate = useNavigate();
