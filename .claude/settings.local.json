@@ -25,7 +25,8 @@
       "mcp__ide__getDiagnostics",
       "Bash(npx playwright test:*)",
       "Bash(npx playwright install:*)",
-      "Bash(npx vite build:*)"
+      "Bash(npx vite build:*)",
+      "Bash(cd:*)"
     ],
     "deny": [],
     "ask": []
