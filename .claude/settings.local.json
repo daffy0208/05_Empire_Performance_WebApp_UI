@@ -26,7 +26,10 @@
       "Bash(npx playwright test:*)",
       "Bash(npx playwright install:*)",
       "Bash(npx vite build:*)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(tree:*)",
+      "Bash(xargs -I {} sh -c 'base=$(basename {} .jsx); dir=$(dirname {}); if [ -f \"\"\"\"$dir/$base.tsx\"\"\"\" ]; then echo \"\"\"\"Duplicate: $dir/$base\"\"\"\"; fi')",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

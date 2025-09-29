@@ -1,22 +1,22 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes as RouterRoutes } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
-import ScrollToTop from './components/ScrollToTop';
-import ScreenLoader from './components/ui/ScreenLoader';
-import ProtectedRoute from './components/routing/ProtectedRoute';
+import ScrollToTop from './shared/components/ScrollToTop';
+import ScreenLoader from './shared/components/ui/ScreenLoader';
+import ProtectedRoute from './shared/components/routing/ProtectedRoute';
 
 // Page Imports (lazy-loaded)
-const PublicLandingPage = React.lazy(() => import('./pages/public-landing-page'));
-const MultiStepBookingFlow = React.lazy(() => import('./pages/multi-step-booking-flow'));
-const LoginRegister = React.lazy(() => import('./pages/login-register'));
-const ParentDashboard = React.lazy(() => import('./pages/parent-dashboard'));
-const CoachDashboard = React.lazy(() => import('./pages/coach-dashboard'));
-const DirectorDashboard = React.lazy(() => import('./pages/director-dashboard'));
-const NotFound = React.lazy(() => import('./pages/NotFound'));
-const TestPage = React.lazy(() => import('./pages/TestPage'));
+const PublicLandingPage = React.lazy(() => import('./features/coaching/public-landing-page'));
+const MultiStepBookingFlow = React.lazy(() => import('./features/booking/multi-step-booking-flow'));
+const LoginRegister = React.lazy(() => import('./features/auth/login-register'));
+const ParentDashboard = React.lazy(() => import('./features/dashboard/parent-dashboard'));
+const CoachDashboard = React.lazy(() => import('./features/dashboard/coach-dashboard'));
+const DirectorDashboard = React.lazy(() => import('./features/dashboard/director-dashboard'));
+const NotFound = React.lazy(() => import('./shared/components/NotFound'));
+const TestPage = React.lazy(() => import('./shared/components/TestPage'));
 
 // Component Imports
-import RoleBasedRouter from './components/ui/RoleBasedRouter';
+import RoleBasedRouter from './shared/components/ui/RoleBasedRouter';
 
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
