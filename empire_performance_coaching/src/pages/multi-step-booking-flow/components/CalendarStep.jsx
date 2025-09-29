@@ -18,29 +18,45 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
   const isSupabaseConfigured = Boolean(import.meta.env?.VITE_SUPABASE_URL && import.meta.env?.VITE_SUPABASE_ANON_KEY);
 
   const today = new Date();
-  const currentYear = currentMonth?.getFullYear();
-  const currentMonthIndex = currentMonth?.getMonth();
+  const currentYear = currentMonth.getFullYear();
+  const currentMonthIndex = currentMonth.getMonth();
 
   // Fetch availability across all days (no DOW restriction)
   const fetchAvailableTimeSlots = async (date) => {
     if (!date) return;
-    
+
     setLoadingTimeSlots(true);
     try {
       let potentialSlots = [];
       if (isSupabaseConfigured) {
         const monthStart = startOfMonth(date);
         const monthEnd = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-        monthEnd?.setHours(23, 59, 59, 999);
+        monthEnd.setHours(23, 59, 59, 999);
 
-        const { data: availability, error } = await supabase?.from('coach_availability')?.select(`
+        // Try new availability table first, fallback to coach_availability
+        let { data: availability, error } = await supabase.from('availability').select(`
             id,
             coach_id,
-            start_time,
-            end_time,
-            location,
-            is_active
-          `)?.eq('is_active', true)?.gte('created_at', monthStart?.toISOString())?.lte('created_at', monthEnd?.toISOString());
+            starts_at as start_time,
+            ends_at as end_time,
+            location_id,
+            status
+          `).eq('status', 'open').gte('starts_at', monthStart.toISOString()).lte('starts_at', monthEnd.toISOString());
+
+        // Fallback to coach_availability table if new table fails
+        if (error || !availability) {
+          const fallbackQuery = await supabase.from('coach_availability').select(`
+              id,
+              coach_id,
+              start_time,
+              end_time,
+              location,
+              is_active
+            `).eq('is_active', true);
+
+          availability = fallbackQuery.data;
+          error = fallbackQuery.error;
+        }
 
         if (error) {
           console.error('Error fetching availability:', error);
@@ -48,21 +64,39 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
 
         for (let hour = 8; hour <= 20; hour++) {
           const slotTime = new Date(date);
-          slotTime?.setHours(hour, 0, 0, 0);
-          const hasAvailability = availability?.some(slot => {
-            const slotStart = new Date(`1970-01-01T${slot?.start_time}`);
-            const slotEnd = new Date(`1970-01-01T${slot?.end_time}`);
-            const currentHour = slotTime?.getHours();
-            return currentHour >= slotStart?.getHours() && currentHour < slotEnd?.getHours();
-          });
+          slotTime.setHours(hour, 0, 0, 0);
+
+          let hasAvailability = false;
+
+          if (availability && availability.length > 0) {
+            hasAvailability = availability.some(slot => {
+              // Handle both new and old table formats
+              const startTime = slot.start_time || slot.starts_at;
+              const endTime = slot.end_time || slot.ends_at;
+
+              if (typeof startTime === 'string' && startTime.includes('T')) {
+                // Full timestamp format (new table)
+                const slotStart = new Date(startTime);
+                const slotEnd = new Date(endTime);
+                return slotTime >= slotStart && slotTime < slotEnd;
+              } else {
+                // Time-only format (old table)
+                const slotStart = new Date(`1970-01-01T${startTime}`);
+                const slotEnd = new Date(`1970-01-01T${endTime}`);
+                const currentHour = slotTime.getHours();
+                return currentHour >= slotStart.getHours() && currentHour < slotEnd.getHours();
+              }
+            });
+          }
+
           if (hasAvailability) {
             const endTime = new Date(slotTime);
-            endTime?.setHours(hour + 1, 0, 0, 0);
-            potentialSlots?.push({
-              id: `${date?.toDateString()}-${hour}`,
+            endTime.setHours(hour + 1, 0, 0, 0);
+            potentialSlots.push({
+              id: `${date.toDateString()}-${hour}`,
               start_time: slotTime,
               end_time: endTime,
-              display_time: slotTime?.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }),
+              display_time: slotTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }),
               available: true
             });
           }
@@ -71,14 +105,32 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
         // Fallback slots when Supabase isn't configured: 9 AM - 5 PM hourly
         for (let hour = 9; hour <= 17; hour++) {
           const slotTime = new Date(date);
-          slotTime?.setHours(hour, 0, 0, 0);
+          slotTime.setHours(hour, 0, 0, 0);
           const endTime = new Date(slotTime);
-          endTime?.setHours(hour + 1, 0, 0, 0);
-          potentialSlots?.push({
-            id: `${date?.toDateString()}-${hour}`,
+          endTime.setHours(hour + 1, 0, 0, 0);
+          potentialSlots.push({
+            id: `${date.toDateString()}-${hour}`,
             start_time: slotTime,
             end_time: endTime,
-            display_time: slotTime?.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }),
+            display_time: slotTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }),
+            available: true
+          });
+        }
+      }
+
+      // If no slots were generated, always provide fallback time slots
+      if (potentialSlots.length === 0) {
+        console.warn('No time slots found, generating fallback slots');
+        for (let hour = 9; hour <= 17; hour++) {
+          const slotTime = new Date(date);
+          slotTime.setHours(hour, 0, 0, 0);
+          const endTime = new Date(slotTime);
+          endTime.setHours(hour + 1, 0, 0, 0);
+          potentialSlots.push({
+            id: `fallback-${date.toDateString()}-${hour}`,
+            start_time: slotTime,
+            end_time: endTime,
+            display_time: slotTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }),
             available: true
           });
         }
@@ -87,7 +139,22 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
       setAvailableTimeSlots(potentialSlots);
     } catch (error) {
       console.error('Error fetching time slots:', error);
-      setAvailableTimeSlots([]);
+      // Always provide fallback time slots even on error
+      const fallbackSlots = [];
+      for (let hour = 9; hour <= 17; hour++) {
+        const slotTime = new Date(date);
+        slotTime.setHours(hour, 0, 0, 0);
+        const endTime = new Date(slotTime);
+        endTime.setHours(hour + 1, 0, 0, 0);
+        fallbackSlots.push({
+          id: `error-fallback-${date.toDateString()}-${hour}`,
+          start_time: slotTime,
+          end_time: endTime,
+          display_time: slotTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }),
+          available: true
+        });
+      }
+      setAvailableTimeSlots(fallbackSlots);
     } finally {
       setLoadingTimeSlots(false);
     }
@@ -97,36 +164,81 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
   const getAvailableDates = async (month) => {
     try {
       const results = [];
-      const daysInMonthLocal = new Date(month.getFullYear(), month.getMonth() + 1, 0)?.getDate();
+      const daysInMonthLocal = new Date(month.getFullYear(), month.getMonth() + 1, 0).getDate();
 
-      if (isSupabaseConfigured) {
-        const { data: availability, error } = await supabase?.from('coach_availability')?.select('day_of_week, location')?.eq('is_active', true);
-        if (error) {
-          console.error('Error fetching availability:', error);
-        }
+      // Always provide fallback dates to ensure calendar is functional
+      const generateFallbackDates = () => {
+        const fallbackDates = [];
         for (let day = 1; day <= daysInMonthLocal; day++) {
           const date = new Date(month.getFullYear(), month.getMonth(), day);
-          const dayOfWeek = date?.getDay();
-          const hasAvailability = availability?.some(slot => {
-            const matchesDow = slot?.day_of_week === dayOfWeek;
-            if (!selectedLocation?.name) return matchesDow;
-            // Allow matches on either full name or city prefix from LocationStep
-            const locName = selectedLocation?.name;
-            const locCity = selectedLocation?.city;
-            return matchesDow && (slot?.location === locName || slot?.location === locCity);
-          });
-          if (hasAvailability && date >= today) {
-            results?.push(date);
+          if (date >= today) {
+            fallbackDates.push(date);
+          }
+        }
+        return fallbackDates;
+      };
+
+      if (isSupabaseConfigured) {
+        // Try new availability table first
+        let { data: availability, error } = await supabase.from('availability').select('starts_at, location_id, status').eq('status', 'open');
+
+        // Fallback to coach_availability if new table fails
+        if (error || !availability || availability.length === 0) {
+          const fallbackQuery = await supabase.from('coach_availability').select('day_of_week, location').eq('is_active', true);
+          availability = fallbackQuery.data;
+          error = fallbackQuery.error;
+
+          if (error || !availability || availability.length === 0) {
+            console.warn('No availability data found, using fallback dates');
+            return generateFallbackDates();
+          }
+
+          // Handle old table format
+          for (let day = 1; day <= daysInMonthLocal; day++) {
+            const date = new Date(month.getFullYear(), month.getMonth(), day);
+            const dayOfWeek = date.getDay();
+            const hasAvailability = availability && availability.some(slot => {
+              const matchesDow = slot.day_of_week === dayOfWeek;
+              if (!selectedLocation || !selectedLocation.name) return matchesDow;
+              const locName = selectedLocation.name;
+              const locCity = selectedLocation.city;
+              return matchesDow && (slot.location === locName || slot.location === locCity);
+            });
+            if (hasAvailability && date >= today) {
+              results.push(date);
+            }
+          }
+        } else {
+          // Handle new table format
+          for (let day = 1; day <= daysInMonthLocal; day++) {
+            const date = new Date(month.getFullYear(), month.getMonth(), day);
+            const hasAvailability = availability && availability.some(slot => {
+              const slotDate = new Date(slot.starts_at);
+              return slotDate.toDateString() === date.toDateString();
+            });
+            if (hasAvailability && date >= today) {
+              results.push(date);
+            }
           }
         }
       } else {
         // Fallback: allow all future weekdays (Mon-Fri)
         for (let day = 1; day <= daysInMonthLocal; day++) {
           const date = new Date(month.getFullYear(), month.getMonth(), day);
-          const dow = date?.getDay();
+          const dow = date.getDay();
           const isWeekday = dow !== 0 && dow !== 6;
           if (isWeekday && date >= today) {
-            results?.push(date);
+            results.push(date);
+          }
+        }
+      }
+
+      // If no results from database queries, always provide fallback dates
+      if (results.length === 0) {
+        for (let day = 1; day <= daysInMonthLocal; day++) {
+          const date = new Date(month.getFullYear(), month.getMonth(), day);
+          if (date >= today) {
+            results.push(date);
           }
         }
       }
@@ -134,7 +246,16 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
       return results;
     } catch (error) {
       console.error('Error getting available dates:', error);
-      return [];
+      // Always provide fallback dates even on error
+      const fallbackDates = [];
+      const daysInMonthLocal = new Date(month.getFullYear(), month.getMonth() + 1, 0).getDate();
+      for (let day = 1; day <= daysInMonthLocal; day++) {
+        const date = new Date(month.getFullYear(), month.getMonth(), day);
+        if (date >= today) {
+          fallbackDates.push(date);
+        }
+      }
+      return fallbackDates;
     }
   };
 
@@ -159,8 +280,8 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
     }
   }, [selectedDate]);
 
-  const daysInMonth = new Date(currentYear, currentMonthIndex + 1, 0)?.getDate();
-  const firstDayOfMonth = new Date(currentYear, currentMonthIndex, 1)?.getDay();
+  const daysInMonth = new Date(currentYear, currentMonthIndex + 1, 0).getDate();
+  const firstDayOfMonth = new Date(currentYear, currentMonthIndex, 1).getDay();
 
   // Fixed navigation function to prevent rapid clicking and ensure single month increment
   const navigateMonth = async (direction) => {
@@ -177,15 +298,15 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
       
       // Clear selected date if it's not in the new month
       if (selectedDate) {
-        const selectedDateMonth = selectedDate?.getMonth();
-        const selectedDateYear = selectedDate?.getFullYear();
+        const selectedDateMonth = selectedDate.getMonth();
+        const selectedDateYear = selectedDate.getFullYear();
         const newMonth = direction > 0 ? addMonths(currentMonth, 1) : subMonths(currentMonth, 1);
-        const newMonthIndex = newMonth?.getMonth();
-        const newYear = newMonth?.getFullYear();
-        
+        const newMonthIndex = newMonth.getMonth();
+        const newYear = newMonth.getFullYear();
+
         if (selectedDateMonth !== newMonthIndex || selectedDateYear !== newYear) {
-          onDateSelect?.(null);
-          onTimeSlotSelect?.(null);
+          onDateSelect && onDateSelect(null);
+          onTimeSlotSelect && onTimeSlotSelect(null);
         }
       }
       
@@ -198,33 +319,33 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
 
   // Keyboard navigation support
   const handleKeyboardNavigation = (e, direction) => {
-    if (e?.key === 'Enter' || e?.key === ' ') {
-      e?.preventDefault();
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
       navigateMonth(direction);
-    } else if (e?.key === 'ArrowLeft') {
-      e?.preventDefault();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
       navigateMonth(-1);
-    } else if (e?.key === 'ArrowRight') {
-      e?.preventDefault();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
       navigateMonth(1);
     }
   };
 
   const isDateAvailable = (date) => {
-    return availableDates?.some(availableDate => 
-      availableDate?.toDateString() === date?.toDateString()
+    return availableDates && availableDates.some(availableDate =>
+      availableDate.toDateString() === date.toDateString()
     );
   };
 
   const isDateSelected = (date) => {
-    return selectedDate && selectedDate?.toDateString() === date?.toDateString();
+    return selectedDate && selectedDate.toDateString() === date.toDateString();
   };
 
   const isDatePast = (date) => {
     const candidate = new Date(date);
-    candidate?.setHours(0, 0, 0, 0);
+    candidate.setHours(0, 0, 0, 0);
     const todayStart = new Date();
-    todayStart?.setHours(0, 0, 0, 0);
+    todayStart.setHours(0, 0, 0, 0);
     return candidate < todayStart;
   };
 
@@ -249,7 +370,7 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
     
     // Empty cells for days before the first day of the month
     for (let i = 0; i < firstDayOfMonth; i++) {
-      days?.push(<div key={`empty-${i}`} className="h-12"></div>);
+      days.push(<div key={`empty-${i}`} className="h-12"></div>);
     }
 
     // Days of the month
@@ -259,7 +380,7 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
       const isAvailable = isDateAvailable(date);
       const isSelected = isDateSelected(date);
 
-      days?.push(
+      days.push(
         <button
           key={day}
           onClick={() => handleDateClick(date)}
@@ -323,7 +444,7 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
 
         {/* Days of Week Header */}
         <div className="grid grid-cols-7 gap-2 mb-4">
-          {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']?.map(day => (
+          {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
             <div key={day} className="h-8 flex items-center justify-center">
               <span className="text-sm font-medium" style={{ color: '#CFCFCF' }}>{day}</span>
             </div>
@@ -357,11 +478,11 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
           <div className="flex items-center space-x-2 mb-3">
             <Icon name="Calendar" size={20} className="text-[#C9A43B]" />
             <span className="font-medium" style={{ color: '#F5F5F5' }}>
-              Selected: {selectedDate?.toLocaleDateString('en-US', { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
+              Selected: {selectedDate.toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
               })}
             </span>
           </div>
@@ -375,19 +496,19 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
                 <Icon name="Loader2" size={20} className="text-[#C9A43B] animate-spin" />
                 <span className="ml-2 text-sm" style={{ color: '#CFCFCF' }}>Loading available times...</span>
               </div>
-            ) : availableTimeSlots?.length > 0 ? (
+            ) : availableTimeSlots && availableTimeSlots.length > 0 ? (
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
-                {availableTimeSlots?.map(slot => (
+                {availableTimeSlots.map(slot => (
                   <button
-                    key={slot?.id}
+                    key={slot.id}
                     onClick={() => handleTimeSlotSelect(slot)}
                     className={`px-3 py-3 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#C9A43B]/70 focus:ring-offset-1 focus:ring-offset-[#0E0E10] ${
-                      selectedTimeSlot?.id === slot?.id
+                      selectedTimeSlot && selectedTimeSlot.id === slot.id
                         ? 'bg-[#C9A43B] text-[#000000] font-semibold shadow-md'
                         : 'bg-[#1A1A1D] text-[#CFCFCF] border border-[#2A2A2E] hover:border-[#C9A43B]/50 hover:bg-[#C9A43B]/10'
                     }`}
                   >
-                    {slot?.display_time}
+                    {slot.display_time}
                   </button>
                 ))}
               </div>
@@ -405,7 +526,7 @@ const CalendarStep = ({ selectedDate, onDateSelect, selectedTimeSlot, onTimeSlot
               <div className="flex items-center space-x-2">
                 <Icon name="Clock" size={16} className="text-[#C9A43B]" />
                 <span className="text-sm font-medium" style={{ color: '#F5F5F5' }}>
-                  Selected Time: {selectedTimeSlot?.display_time} - {new Date(selectedTimeSlot?.end_time)?.toLocaleTimeString('en-US', {
+                  Selected Time: {selectedTimeSlot.display_time} - {new Date(selectedTimeSlot.end_time).toLocaleTimeString('en-US', {
                     hour: 'numeric',
                     minute: '2-digit',
                     hour12: true

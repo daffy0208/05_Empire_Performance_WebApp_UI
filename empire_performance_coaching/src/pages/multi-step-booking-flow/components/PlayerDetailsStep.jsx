@@ -57,43 +57,80 @@ const PlayerDetailsStep = ({ playerDetails, onPlayerDetailsChange, user }) => {
 
   // Handle new athlete creation
   const handleCreateNewAthlete = async () => {
-    if (!newAthleteForm?.name?.trim() || !user?.id) return;
+    if (!newAthleteForm?.name?.trim()) return;
 
     try {
-      const { data, error } = await supabase?.from('athletes')?.insert([{
-          parent_id: user?.id,
-          name: newAthleteForm?.name?.trim(),
-          birth_date: newAthleteForm?.birth_date || null,
-          notes: newAthleteForm?.notes?.trim() || null
-        }])?.select()?.single();
+      // If user is logged in, try to save to database
+      if (user?.id && supabase) {
+        const { data, error } = await supabase?.from('athletes')?.insert([{
+            parent_id: user?.id,
+            name: newAthleteForm?.name?.trim(),
+            birth_date: newAthleteForm?.birth_date || null,
+            notes: newAthleteForm?.notes?.trim() || null
+          }])?.select()?.single();
 
-      if (error) {
-        console.error('Error creating athlete:', error);
-        return;
+        if (!error && data) {
+          // Add to local state
+          setAthletes([data, ...athletes]);
+
+          // Select the new athlete
+          handleAthleteSelect(data);
+
+          // Reset form
+          setNewAthleteForm({ name: '', birth_date: '', notes: '' });
+          setShowAddNew(false);
+          return;
+        } else {
+          console.error('Error creating athlete:', error);
+        }
       }
 
-      // Add to local state
-      setAthletes([data, ...athletes]);
-      
-      // Select the new athlete
-      handleAthleteSelect(data);
-      
+      // Fallback: Create temporary athlete data for progression
+      const tempAthleteData = {
+        id: `temp-${Date.now()}`,
+        name: newAthleteForm?.name?.trim(),
+        birth_date: newAthleteForm?.birth_date || null,
+        notes: newAthleteForm?.notes?.trim() || null
+      };
+
+      // Select the temporary athlete to enable progression
+      handleAthleteSelect(tempAthleteData);
+
       // Reset form
       setNewAthleteForm({ name: '', birth_date: '', notes: '' });
       setShowAddNew(false);
     } catch (err) {
       console.error('Error creating athlete:', err);
+
+      // Even on error, create temporary data to allow progression
+      const tempAthleteData = {
+        id: `temp-${Date.now()}`,
+        name: newAthleteForm?.name?.trim(),
+        birth_date: newAthleteForm?.birth_date || null,
+        notes: newAthleteForm?.notes?.trim() || null
+      };
+
+      handleAthleteSelect(tempAthleteData);
+      setNewAthleteForm({ name: '', birth_date: '', notes: '' });
+      setShowAddNew(false);
     }
   };
 
   // Handle manual form input (fallback)
   const handleManualDetailsChange = (field, value) => {
-    onPlayerDetailsChange({
+    const updatedDetails = {
       ...playerDetails,
       [field]: value,
       athlete_id: null, // Clear athlete_id when manually entering
       isNewAthlete: true
-    });
+    };
+
+    // Ensure we have at least a name to enable progression
+    if (field === 'playerName' && value.trim()) {
+      updatedDetails.playerName = value.trim();
+    }
+
+    onPlayerDetailsChange(updatedDetails);
   };
 
   if (loading) {

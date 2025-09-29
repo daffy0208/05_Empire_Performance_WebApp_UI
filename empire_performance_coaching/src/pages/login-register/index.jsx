@@ -8,6 +8,7 @@ import SocialAuth from './components/SocialAuth';
 import ForgotPasswordModal from './components/ForgotPasswordModal';
 import SecurityBadges from './components/SecurityBadges';
 import { z } from 'zod';
+import { validatePassword } from '../../utils/validatePassword';
 
 const LoginRegister = () => {
   const navigate = useNavigate();
@@ -31,27 +32,46 @@ const LoginRegister = () => {
   // Redirect if already authenticated
   useEffect(() => {
     if (user) {
-      // Redirect based on role when available
-      navigate('/parent-dashboard'); // Default redirect
+      // Redirect based on user role
+      const userRole = user?.user_metadata?.role || user?.app_metadata?.role || 'parent';
+
+      switch (userRole) {
+        case 'director':
+          navigate('/director-dashboard');
+          break;
+        case 'coach':
+          navigate('/coach-dashboard');
+          break;
+        case 'parent':
+        default:
+          navigate('/parent-dashboard');
+          break;
+      }
     }
   }, [user, navigate]);
 
-  // Mock credentials for testing
-  const mockCredentials = {
+  // Mock credentials removed for production security
+  // Use proper test accounts in development environment only
+  const mockCredentials = process.env.NODE_ENV === 'development' ? {
     parent: { email: 'parent@test.com', password: 'parent123' },
     coach: { email: 'coach@test.com', password: 'coach123' },
     director: { email: 'director@test.com', password: 'director123' }
-  };
+  } : null;
 
   const handleInputChange = (e) => {
-    const { name, value } = e?.target;
+    const { name, value, type, checked } = e.target;
+
+    // Basic input sanitization to prevent XSS
+    const sanitizedValue = type === 'checkbox' ? checked :
+      typeof value === 'string' ? value.trim() : value;
+
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: sanitizedValue
     }));
-    
+
     // Clear error when user starts typing
-    if (errors?.[name]) {
+    if (errors[name]) {
       setErrors(prev => ({
         ...prev,
         [name]: ''
@@ -72,7 +92,7 @@ const LoginRegister = () => {
   });
 
   const validateLoginForm = () => {
-    const result = loginSchema.safeParse({ email: formData?.email, password: formData?.password });
+    const result = loginSchema.safeParse({ email: formData.email, password: formData.password });
     if (!result.success) {
       const newErrors = Object.fromEntries(result.error.issues.map(i => [i.path[0], i.message]));
       setErrors(newErrors);
@@ -87,8 +107,13 @@ const LoginRegister = () => {
     lastName: z.string().min(1, 'Last name is required'),
     email: z.string().min(1, 'Email is required').email('Please enter a valid email'),
     phone: z.string().min(1, 'Phone number is required'),
-    role: z.enum(['parent', 'coach']),
-    password: z.string().min(6, 'Password must be at least 6 characters'),
+    role: z.enum(['parent', 'coach', 'director']),
+    password: z.string().refine((password) => {
+      const validation = validatePassword(password);
+      return validation.isValid;
+    }, {
+      message: 'Password must be at least 8 characters with uppercase, lowercase, number and special character'
+    }),
     confirmPassword: z.string().min(1, 'Please confirm your password'),
     agreeToTerms: z.literal(true, { errorMap: () => ({ message: 'You must agree to the terms and conditions' }) }),
   }).refine((data) => data.password === data.confirmPassword, {
@@ -97,6 +122,17 @@ const LoginRegister = () => {
   });
 
   const validateRegisterForm = () => {
+    // First check password validation for better error messages
+    if (formData.password) {
+      const passwordValidation = validatePassword(formData.password);
+      if (!passwordValidation.isValid) {
+        setErrors({
+          password: passwordValidation.errors[0] // Show the first error
+        });
+        return false;
+      }
+    }
+
     const result = registerSchema.safeParse(formData);
     if (!result.success) {
       const newErrors = Object.fromEntries(result.error.issues.map(i => [i.path[0], i.message]));
@@ -108,18 +144,18 @@ const LoginRegister = () => {
   };
 
   const handleLogin = async (e) => {
-    e?.preventDefault();
-    
+    e.preventDefault();
+
     if (!validateLoginForm()) return;
 
     setIsLoading(true);
 
     try {
-      const { data, error } = await signIn(formData?.email, formData?.password);
-      
+      const { data, error } = await signIn(formData.email, formData.password);
+
       if (error) {
-        setErrors({ 
-          submit: error?.message || 'Invalid credentials. Please try again.' 
+        setErrors({
+          submit: error.message || 'Invalid credentials. Please try again.'
         });
         return;
       }
@@ -133,24 +169,24 @@ const LoginRegister = () => {
   };
 
   const handleRegister = async (e) => {
-    e?.preventDefault();
-    
+    e.preventDefault();
+
     if (!validateRegisterForm()) return;
 
     setIsLoading(true);
 
     try {
       const userData = {
-        full_name: `${formData?.firstName} ${formData?.lastName}`,
-        role: formData?.role,
-        phone: formData?.phone
+        full_name: `${formData.firstName} ${formData.lastName}`,
+        role: formData.role,
+        phone: formData.phone
       };
 
-      const { data, error } = await signUp(formData?.email, formData?.password, userData);
-      
+      const { data, error } = await signUp(formData.email, formData.password, userData);
+
       if (error) {
-        setErrors({ 
-          submit: error?.message || 'Registration failed. Please try again.' 
+        setErrors({
+          submit: error.message || 'Registration failed. Please try again.'
         });
         return;
       }

@@ -27,10 +27,11 @@
     "warning": "🚨 CRITICAL: DO NOT REMOVE OR MODIFY ABOVE DEPENDENCIES - Required for app functionality"
   },
   "dependencies": {
-    "zod": "^3.23.8",
     "@dhiwise/component-tagger": "^1.0.10",
     "@radix-ui/react-slot": "^1.2.3",
     "@reduxjs/toolkit": "^2.6.1",
+    "@sentry/react": "^10.11.0",
+    "@sentry/tracing": "^7.120.4",
     "@supabase/auth-ui-react": "^0.4.7",
     "@supabase/supabase-js": "^2.56.1",
     "@tailwindcss/forms": "^0.5.7",
@@ -57,7 +58,8 @@
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-elevation": "^2.0.0",
-    "tailwindcss-fluid-type": "^2.0.7"
+    "tailwindcss-fluid-type": "^2.0.7",
+    "zod": "^3.23.8"
   },
   "scripts": {
     "start": "vite",
@@ -65,7 +67,9 @@
     "serve": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "eslintConfig": {
     "extends": [
@@ -86,24 +90,24 @@
     ]
   },
   "devDependencies": {
+    "@playwright/test": "^1.47.2",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/line-clamp": "^0.1.0",
     "@tailwindcss/typography": "^0.5.16",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "@testing-library/user-event": "^14.5.2",
     "@vitejs/plugin-react": "4.3.4",
+    "@vitest/coverage-v8": "^2.1.9",
     "autoprefixer": "10.4.2",
+    "jsdom": "^24.1.0",
     "postcss": "8.4.8",
     "tailwindcss": "3.4.6",
+    "typescript": "^5.5.4",
     "vite": "5.0.0",
-    "vite-tsconfig-paths": "3.6.0",
-    "@testing-library/react": "^14.2.1",
-    "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/user-event": "^14.5.2",
-    "vitest": "^2.1.4",
-    "jsdom": "^24.1.0",
-    
-    "@playwright/test": "^1.47.2",
     "vite-plugin-pwa": "^0.20.5",
-    "typescript": "^5.5.4"
+    "vite-tsconfig-paths": "3.6.0",
+    "vitest": "^2.1.4"
   }
 }

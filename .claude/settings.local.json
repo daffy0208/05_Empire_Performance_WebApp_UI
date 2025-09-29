@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run test:*)",
+      "Bash(npm start)",
+      "Bash(curl:*)",
+      "Bash(npm run lint)",
+      "Bash(npm run:*)",
+      "Bash(npm test)",
+      "Bash(npx supabase:*)",
+      "Bash(npm start:*)",
+      "Bash(node:*)",
+      "Bash(grep:*)",
+      "Bash(/bashes)",
+      "Bash(kill:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(find:*)",
+      "Bash(lsof:*)",
+      "Bash(pkill:*)",
+      "Bash(netstat:*)",
+      "Bash(ss:*)",
+      "Bash(npx bundlesize:*)",
+      "Bash(xargs kill:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(npx playwright test:*)",
+      "Bash(npx playwright install:*)",
+      "Bash(npx vite build:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

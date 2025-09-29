@@ -57,7 +57,7 @@ const NavigationButtons = ({
 
       {/* Mobile: Sticky at bottom */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 bg-[#0E0E10] border-t border-[#2A2A2E] p-4">
-        <div className="flex items-center justify-between max-w-[1440px] mx-auto">
+        <div className="flex items-center justify-between w-full">
           {showCancel && (
             <button
               onClick={onCancel}

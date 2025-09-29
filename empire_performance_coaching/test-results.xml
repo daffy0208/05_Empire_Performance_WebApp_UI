@@ -1,0 +1,2207 @@
+<testsuites id="" name="" tests="120" failures="120" skipped="0" errors="0" time="6.3644430000000005">
+<testsuite name="auth-system-comprehensive.spec.ts" timestamp="2025-09-16T11:11:55.027Z" hostname="chromium" tests="24" failures="24" skipped="0" time="0.11" errors="0">
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should display login form correctly" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:19:9 should display login form correctly" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:19:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should display login form correctly 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate empty login fields" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:31:9 should validate empty login fields" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:31:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate empty login fields 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate invalid email format" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:43:9 should validate invalid email format" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:43:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate invalid email format 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should handle invalid credentials" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:56:9 should handle invalid credentials" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:56:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should handle invalid credentials 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should attempt login with mock credentials" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:69:9 should attempt login with mock credentials" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:69:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should attempt login with mock credentials 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should display registration form correctly" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:90:9 should display registration form correctly" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:90:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should display registration form correctly 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      84 |     test.beforeEach(async () => {
+      85 |       // Switch to register tab
+    > 86 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+         |                  ^
+      87 |       await page.waitForTimeout(500); // Wait for tab switch animation
+      88 |     });
+      89 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:86:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should validate required registration fields" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:112:9 should validate required registration fields" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:112:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should validate required registration fields 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      84 |     test.beforeEach(async () => {
+      85 |       // Switch to register tab
+    > 86 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+         |                  ^
+      87 |       await page.waitForTimeout(500); // Wait for tab switch animation
+      88 |     });
+      89 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:86:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should test role selection" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:121:9 should test role selection" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:121:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should test role selection 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      84 |     test.beforeEach(async () => {
+      85 |       // Switch to register tab
+    > 86 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+         |                  ^
+      87 |       await page.waitForTimeout(500); // Wait for tab switch animation
+      88 |     });
+      89 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:86:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password complexity requirements" classname="auth-system-comprehensive.spec.ts" time="0.009">
+<failure message="auth-system-comprehensive.spec.ts:144:9 should validate password complexity requirements" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:144:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password complexity requirements 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      138 |     test.beforeEach(async () => {
+      139 |       // Switch to register tab for password testing
+    > 140 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+          |                  ^
+      141 |       await page.waitForTimeout(500);
+      142 |     });
+      143 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:140:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password confirmation matching" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:170:9 should validate password confirmation matching" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:170:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password confirmation matching 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      138 |     test.beforeEach(async () => {
+      139 |       // Switch to register tab for password testing
+    > 140 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+          |                  ^
+      141 |       await page.waitForTimeout(500);
+      142 |     });
+      143 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:140:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should display social authentication buttons" classname="auth-system-comprehensive.spec.ts" time="0.008">
+<failure message="auth-system-comprehensive.spec.ts:188:9 should display social authentication buttons" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:188:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should display social authentication buttons 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should handle social authentication button clicks" classname="auth-system-comprehensive.spec.ts" time="0.002">
+<failure message="auth-system-comprehensive.spec.ts:207:9 should handle social authentication button clicks" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:207:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should handle social authentication button clicks 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should open forgot password modal" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:222:9 should open forgot password modal" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:222:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should open forgot password modal 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should validate forgot password form" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:231:9 should validate forgot password form" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:231:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should validate forgot password form 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should handle forgot password submission" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:248:9 should handle forgot password submission" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:248:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should handle forgot password submission 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle special characters in inputs" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:269:9 should handle special characters in inputs" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:269:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle special characters in inputs 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle extremely long inputs" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:289:9 should handle extremely long inputs" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:289:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle extremely long inputs 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should have proper form labels and accessibility" classname="auth-system-comprehensive.spec.ts" time="0.007">
+<failure message="auth-system-comprehensive.spec.ts:303:9 should have proper form labels and accessibility" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:303:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should have proper form labels and accessibility 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should handle keyboard navigation" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:313:9 should handle keyboard navigation" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:313:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should handle keyboard navigation 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should be responsive" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:324:9 should be responsive" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:324:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should be responsive 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should not expose sensitive data in DOM" classname="auth-system-comprehensive.spec.ts" time="0.006">
+<failure message="auth-system-comprehensive.spec.ts:339:9 should not expose sensitive data in DOM" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:339:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should not expose sensitive data in DOM 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should handle XSS attempts" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:348:9 should handle XSS attempts" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:348:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should handle XSS attempts 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 9. Error Handling › should handle network errors gracefully" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:376:9 should handle network errors gracefully" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:376:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 9. Error Handling › should handle network errors gracefully 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 10. Performance and Loading › should load authentication page quickly" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:395:9 should load authentication page quickly" type="FAILURE">
+<![CDATA[  [chromium] › auth-system-comprehensive.spec.ts:395:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 10. Performance and Loading › should load authentication page quickly 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="auth-system-comprehensive.spec.ts" timestamp="2025-09-16T11:11:55.027Z" hostname="firefox" tests="24" failures="24" skipped="0" time="0.121" errors="0">
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should display login form correctly" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:19:9 should display login form correctly" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:19:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should display login form correctly 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate empty login fields" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:31:9 should validate empty login fields" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:31:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate empty login fields 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate invalid email format" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:43:9 should validate invalid email format" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:43:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate invalid email format 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should handle invalid credentials" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:56:9 should handle invalid credentials" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:56:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should handle invalid credentials 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should attempt login with mock credentials" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:69:9 should attempt login with mock credentials" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:69:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should attempt login with mock credentials 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should display registration form correctly" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:90:9 should display registration form correctly" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:90:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should display registration form correctly 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      84 |     test.beforeEach(async () => {
+      85 |       // Switch to register tab
+    > 86 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+         |                  ^
+      87 |       await page.waitForTimeout(500); // Wait for tab switch animation
+      88 |     });
+      89 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:86:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should validate required registration fields" classname="auth-system-comprehensive.spec.ts" time="0.006">
+<failure message="auth-system-comprehensive.spec.ts:112:9 should validate required registration fields" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:112:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should validate required registration fields 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      84 |     test.beforeEach(async () => {
+      85 |       // Switch to register tab
+    > 86 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+         |                  ^
+      87 |       await page.waitForTimeout(500); // Wait for tab switch animation
+      88 |     });
+      89 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:86:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should test role selection" classname="auth-system-comprehensive.spec.ts" time="0.006">
+<failure message="auth-system-comprehensive.spec.ts:121:9 should test role selection" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:121:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should test role selection 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      84 |     test.beforeEach(async () => {
+      85 |       // Switch to register tab
+    > 86 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+         |                  ^
+      87 |       await page.waitForTimeout(500); // Wait for tab switch animation
+      88 |     });
+      89 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:86:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password complexity requirements" classname="auth-system-comprehensive.spec.ts" time="0.007">
+<failure message="auth-system-comprehensive.spec.ts:144:9 should validate password complexity requirements" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:144:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password complexity requirements 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      138 |     test.beforeEach(async () => {
+      139 |       // Switch to register tab for password testing
+    > 140 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+          |                  ^
+      141 |       await page.waitForTimeout(500);
+      142 |     });
+      143 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:140:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password confirmation matching" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:170:9 should validate password confirmation matching" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:170:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password confirmation matching 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      138 |     test.beforeEach(async () => {
+      139 |       // Switch to register tab for password testing
+    > 140 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+          |                  ^
+      141 |       await page.waitForTimeout(500);
+      142 |     });
+      143 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:140:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should display social authentication buttons" classname="auth-system-comprehensive.spec.ts" time="0.006">
+<failure message="auth-system-comprehensive.spec.ts:188:9 should display social authentication buttons" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:188:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should display social authentication buttons 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should handle social authentication button clicks" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:207:9 should handle social authentication button clicks" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:207:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should handle social authentication button clicks 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should open forgot password modal" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:222:9 should open forgot password modal" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:222:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should open forgot password modal 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should validate forgot password form" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:231:9 should validate forgot password form" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:231:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should validate forgot password form 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should handle forgot password submission" classname="auth-system-comprehensive.spec.ts" time="0.01">
+<failure message="auth-system-comprehensive.spec.ts:248:9 should handle forgot password submission" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:248:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should handle forgot password submission 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle special characters in inputs" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:269:9 should handle special characters in inputs" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:269:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle special characters in inputs 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle extremely long inputs" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:289:9 should handle extremely long inputs" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:289:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle extremely long inputs 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should have proper form labels and accessibility" classname="auth-system-comprehensive.spec.ts" time="0.007">
+<failure message="auth-system-comprehensive.spec.ts:303:9 should have proper form labels and accessibility" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:303:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should have proper form labels and accessibility 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should handle keyboard navigation" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:313:9 should handle keyboard navigation" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:313:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should handle keyboard navigation 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should be responsive" classname="auth-system-comprehensive.spec.ts" time="0.006">
+<failure message="auth-system-comprehensive.spec.ts:324:9 should be responsive" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:324:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should be responsive 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should not expose sensitive data in DOM" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:339:9 should not expose sensitive data in DOM" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:339:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should not expose sensitive data in DOM 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should handle XSS attempts" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:348:9 should handle XSS attempts" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:348:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should handle XSS attempts 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 9. Error Handling › should handle network errors gracefully" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:376:9 should handle network errors gracefully" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:376:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 9. Error Handling › should handle network errors gracefully 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 10. Performance and Loading › should load authentication page quickly" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:395:9 should load authentication page quickly" type="FAILURE">
+<![CDATA[  [firefox] › auth-system-comprehensive.spec.ts:395:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 10. Performance and Loading › should load authentication page quickly 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/firefox-1490/firefox/firefox
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="auth-system-comprehensive.spec.ts" timestamp="2025-09-16T11:11:55.027Z" hostname="webkit" tests="24" failures="24" skipped="0" time="0.128" errors="0">
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should display login form correctly" classname="auth-system-comprehensive.spec.ts" time="0.007">
+<failure message="auth-system-comprehensive.spec.ts:19:9 should display login form correctly" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:19:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should display login form correctly 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate empty login fields" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:31:9 should validate empty login fields" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:31:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate empty login fields 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate invalid email format" classname="auth-system-comprehensive.spec.ts" time="0.006">
+<failure message="auth-system-comprehensive.spec.ts:43:9 should validate invalid email format" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:43:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate invalid email format 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should handle invalid credentials" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:56:9 should handle invalid credentials" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:56:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should handle invalid credentials 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should attempt login with mock credentials" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:69:9 should attempt login with mock credentials" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:69:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should attempt login with mock credentials 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should display registration form correctly" classname="auth-system-comprehensive.spec.ts" time="0.009">
+<failure message="auth-system-comprehensive.spec.ts:90:9 should display registration form correctly" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:90:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should display registration form correctly 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      84 |     test.beforeEach(async () => {
+      85 |       // Switch to register tab
+    > 86 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+         |                  ^
+      87 |       await page.waitForTimeout(500); // Wait for tab switch animation
+      88 |     });
+      89 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:86:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should validate required registration fields" classname="auth-system-comprehensive.spec.ts" time="0.008">
+<failure message="auth-system-comprehensive.spec.ts:112:9 should validate required registration fields" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:112:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should validate required registration fields 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      84 |     test.beforeEach(async () => {
+      85 |       // Switch to register tab
+    > 86 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+         |                  ^
+      87 |       await page.waitForTimeout(500); // Wait for tab switch animation
+      88 |     });
+      89 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:86:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should test role selection" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:121:9 should test role selection" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:121:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should test role selection 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      84 |     test.beforeEach(async () => {
+      85 |       // Switch to register tab
+    > 86 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+         |                  ^
+      87 |       await page.waitForTimeout(500); // Wait for tab switch animation
+      88 |     });
+      89 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:86:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password complexity requirements" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:144:9 should validate password complexity requirements" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:144:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password complexity requirements 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      138 |     test.beforeEach(async () => {
+      139 |       // Switch to register tab for password testing
+    > 140 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+          |                  ^
+      141 |       await page.waitForTimeout(500);
+      142 |     });
+      143 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:140:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password confirmation matching" classname="auth-system-comprehensive.spec.ts" time="0.008">
+<failure message="auth-system-comprehensive.spec.ts:170:9 should validate password confirmation matching" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:170:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password confirmation matching 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      138 |     test.beforeEach(async () => {
+      139 |       // Switch to register tab for password testing
+    > 140 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+          |                  ^
+      141 |       await page.waitForTimeout(500);
+      142 |     });
+      143 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:140:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should display social authentication buttons" classname="auth-system-comprehensive.spec.ts" time="0.007">
+<failure message="auth-system-comprehensive.spec.ts:188:9 should display social authentication buttons" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:188:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should display social authentication buttons 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should handle social authentication button clicks" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:207:9 should handle social authentication button clicks" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:207:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should handle social authentication button clicks 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should open forgot password modal" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:222:9 should open forgot password modal" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:222:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should open forgot password modal 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should validate forgot password form" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:231:9 should validate forgot password form" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:231:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should validate forgot password form 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should handle forgot password submission" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:248:9 should handle forgot password submission" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:248:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should handle forgot password submission 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle special characters in inputs" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:269:9 should handle special characters in inputs" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:269:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle special characters in inputs 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle extremely long inputs" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:289:9 should handle extremely long inputs" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:289:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle extremely long inputs 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should have proper form labels and accessibility" classname="auth-system-comprehensive.spec.ts" time="0.007">
+<failure message="auth-system-comprehensive.spec.ts:303:9 should have proper form labels and accessibility" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:303:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should have proper form labels and accessibility 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should handle keyboard navigation" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:313:9 should handle keyboard navigation" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:313:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should handle keyboard navigation 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should be responsive" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:324:9 should be responsive" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:324:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should be responsive 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should not expose sensitive data in DOM" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:339:9 should not expose sensitive data in DOM" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:339:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should not expose sensitive data in DOM 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should handle XSS attempts" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:348:9 should handle XSS attempts" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:348:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should handle XSS attempts 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 9. Error Handling › should handle network errors gracefully" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:376:9 should handle network errors gracefully" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:376:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 9. Error Handling › should handle network errors gracefully 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 10. Performance and Loading › should load authentication page quickly" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:395:9 should load authentication page quickly" type="FAILURE">
+<![CDATA[  [webkit] › auth-system-comprehensive.spec.ts:395:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 10. Performance and Loading › should load authentication page quickly 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="auth-system-comprehensive.spec.ts" timestamp="2025-09-16T11:11:55.027Z" hostname="Mobile Chrome" tests="24" failures="24" skipped="0" time="0.154" errors="0">
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should display login form correctly" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:19:9 should display login form correctly" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:19:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should display login form correctly 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate empty login fields" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:31:9 should validate empty login fields" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:31:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate empty login fields 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate invalid email format" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:43:9 should validate invalid email format" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:43:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate invalid email format 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should handle invalid credentials" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:56:9 should handle invalid credentials" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:56:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should handle invalid credentials 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should attempt login with mock credentials" classname="auth-system-comprehensive.spec.ts" time="0.007">
+<failure message="auth-system-comprehensive.spec.ts:69:9 should attempt login with mock credentials" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:69:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should attempt login with mock credentials 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should display registration form correctly" classname="auth-system-comprehensive.spec.ts" time="0.007">
+<failure message="auth-system-comprehensive.spec.ts:90:9 should display registration form correctly" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:90:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should display registration form correctly 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      84 |     test.beforeEach(async () => {
+      85 |       // Switch to register tab
+    > 86 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+         |                  ^
+      87 |       await page.waitForTimeout(500); // Wait for tab switch animation
+      88 |     });
+      89 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:86:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should validate required registration fields" classname="auth-system-comprehensive.spec.ts" time="0.015">
+<failure message="auth-system-comprehensive.spec.ts:112:9 should validate required registration fields" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:112:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should validate required registration fields 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      84 |     test.beforeEach(async () => {
+      85 |       // Switch to register tab
+    > 86 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+         |                  ^
+      87 |       await page.waitForTimeout(500); // Wait for tab switch animation
+      88 |     });
+      89 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:86:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should test role selection" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:121:9 should test role selection" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:121:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should test role selection 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      84 |     test.beforeEach(async () => {
+      85 |       // Switch to register tab
+    > 86 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+         |                  ^
+      87 |       await page.waitForTimeout(500); // Wait for tab switch animation
+      88 |     });
+      89 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:86:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password complexity requirements" classname="auth-system-comprehensive.spec.ts" time="0.014">
+<failure message="auth-system-comprehensive.spec.ts:144:9 should validate password complexity requirements" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:144:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password complexity requirements 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      138 |     test.beforeEach(async () => {
+      139 |       // Switch to register tab for password testing
+    > 140 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+          |                  ^
+      141 |       await page.waitForTimeout(500);
+      142 |     });
+      143 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:140:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password confirmation matching" classname="auth-system-comprehensive.spec.ts" time="0.007">
+<failure message="auth-system-comprehensive.spec.ts:170:9 should validate password confirmation matching" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:170:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password confirmation matching 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      138 |     test.beforeEach(async () => {
+      139 |       // Switch to register tab for password testing
+    > 140 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+          |                  ^
+      141 |       await page.waitForTimeout(500);
+      142 |     });
+      143 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:140:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should display social authentication buttons" classname="auth-system-comprehensive.spec.ts" time="0.015">
+<failure message="auth-system-comprehensive.spec.ts:188:9 should display social authentication buttons" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:188:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should display social authentication buttons 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should handle social authentication button clicks" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:207:9 should handle social authentication button clicks" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:207:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should handle social authentication button clicks 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should open forgot password modal" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:222:9 should open forgot password modal" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:222:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should open forgot password modal 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should validate forgot password form" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:231:9 should validate forgot password form" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:231:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should validate forgot password form 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should handle forgot password submission" classname="auth-system-comprehensive.spec.ts" time="0.007">
+<failure message="auth-system-comprehensive.spec.ts:248:9 should handle forgot password submission" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:248:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should handle forgot password submission 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle special characters in inputs" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:269:9 should handle special characters in inputs" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:269:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle special characters in inputs 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle extremely long inputs" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:289:9 should handle extremely long inputs" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:289:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle extremely long inputs 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should have proper form labels and accessibility" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:303:9 should have proper form labels and accessibility" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:303:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should have proper form labels and accessibility 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should handle keyboard navigation" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:313:9 should handle keyboard navigation" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:313:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should handle keyboard navigation 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should be responsive" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:324:9 should be responsive" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:324:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should be responsive 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should not expose sensitive data in DOM" classname="auth-system-comprehensive.spec.ts" time="0.009">
+<failure message="auth-system-comprehensive.spec.ts:339:9 should not expose sensitive data in DOM" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:339:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should not expose sensitive data in DOM 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should handle XSS attempts" classname="auth-system-comprehensive.spec.ts" time="0.006">
+<failure message="auth-system-comprehensive.spec.ts:348:9 should handle XSS attempts" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:348:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should handle XSS attempts 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 9. Error Handling › should handle network errors gracefully" classname="auth-system-comprehensive.spec.ts" time="0.007">
+<failure message="auth-system-comprehensive.spec.ts:376:9 should handle network errors gracefully" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:376:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 9. Error Handling › should handle network errors gracefully 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 10. Performance and Loading › should load authentication page quickly" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:395:9 should load authentication page quickly" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › auth-system-comprehensive.spec.ts:395:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 10. Performance and Loading › should load authentication page quickly 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="auth-system-comprehensive.spec.ts" timestamp="2025-09-16T11:11:55.027Z" hostname="Mobile Safari" tests="24" failures="24" skipped="0" time="0.108" errors="0">
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should display login form correctly" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:19:9 should display login form correctly" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:19:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should display login form correctly 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate empty login fields" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:31:9 should validate empty login fields" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:31:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate empty login fields 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate invalid email format" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:43:9 should validate invalid email format" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:43:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should validate invalid email format 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should handle invalid credentials" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:56:9 should handle invalid credentials" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:56:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should handle invalid credentials 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should attempt login with mock credentials" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:69:9 should attempt login with mock credentials" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:69:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 1. Login Form Testing › should attempt login with mock credentials 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should display registration form correctly" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:90:9 should display registration form correctly" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:90:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should display registration form correctly 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      84 |     test.beforeEach(async () => {
+      85 |       // Switch to register tab
+    > 86 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+         |                  ^
+      87 |       await page.waitForTimeout(500); // Wait for tab switch animation
+      88 |     });
+      89 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:86:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should validate required registration fields" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:112:9 should validate required registration fields" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:112:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should validate required registration fields 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      84 |     test.beforeEach(async () => {
+      85 |       // Switch to register tab
+    > 86 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+         |                  ^
+      87 |       await page.waitForTimeout(500); // Wait for tab switch animation
+      88 |     });
+      89 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:86:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should test role selection" classname="auth-system-comprehensive.spec.ts" time="0.015">
+<failure message="auth-system-comprehensive.spec.ts:121:9 should test role selection" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:121:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 2. Registration Form Testing › should test role selection 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      84 |     test.beforeEach(async () => {
+      85 |       // Switch to register tab
+    > 86 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+         |                  ^
+      87 |       await page.waitForTimeout(500); // Wait for tab switch animation
+      88 |     });
+      89 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:86:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password complexity requirements" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:144:9 should validate password complexity requirements" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:144:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password complexity requirements 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      138 |     test.beforeEach(async () => {
+      139 |       // Switch to register tab for password testing
+    > 140 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+          |                  ^
+      141 |       await page.waitForTimeout(500);
+      142 |     });
+      143 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:140:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password confirmation matching" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:170:9 should validate password confirmation matching" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:170:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 3. Password Validation Testing › should validate password confirmation matching 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+
+    TypeError: Cannot read properties of undefined (reading 'locator')
+
+      138 |     test.beforeEach(async () => {
+      139 |       // Switch to register tab for password testing
+    > 140 |       await page.locator('text=Register here').or(page.locator('[data-testid="register-tab"]')).click();
+          |                  ^
+      141 |       await page.waitForTimeout(500);
+      142 |     });
+      143 |
+        at /home/david/projects/github/Empire-Performance-Test/empire_performance_coaching/tests/auth-system-comprehensive.spec.ts:140:18
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should display social authentication buttons" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:188:9 should display social authentication buttons" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:188:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should display social authentication buttons 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should handle social authentication button clicks" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:207:9 should handle social authentication button clicks" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:207:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 4. Social Authentication Testing › should handle social authentication button clicks 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should open forgot password modal" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:222:9 should open forgot password modal" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:222:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should open forgot password modal 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should validate forgot password form" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:231:9 should validate forgot password form" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:231:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should validate forgot password form 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should handle forgot password submission" classname="auth-system-comprehensive.spec.ts" time="0.005">
+<failure message="auth-system-comprehensive.spec.ts:248:9 should handle forgot password submission" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:248:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 5. Forgot Password Testing › should handle forgot password submission 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle special characters in inputs" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:269:9 should handle special characters in inputs" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:269:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle special characters in inputs 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle extremely long inputs" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:289:9 should handle extremely long inputs" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:289:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 6. Form Validation Edge Cases › should handle extremely long inputs 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should have proper form labels and accessibility" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:303:9 should have proper form labels and accessibility" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:303:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should have proper form labels and accessibility 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should handle keyboard navigation" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:313:9 should handle keyboard navigation" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:313:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should handle keyboard navigation 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should be responsive" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:324:9 should be responsive" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:324:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 7. UI/UX and Accessibility Testing › should be responsive 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should not expose sensitive data in DOM" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:339:9 should not expose sensitive data in DOM" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:339:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should not expose sensitive data in DOM 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should handle XSS attempts" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:348:9 should handle XSS attempts" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:348:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 8. Security Testing › should handle XSS attempts 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 9. Error Handling › should handle network errors gracefully" classname="auth-system-comprehensive.spec.ts" time="0.003">
+<failure message="auth-system-comprehensive.spec.ts:376:9 should handle network errors gracefully" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:376:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 9. Error Handling › should handle network errors gracefully 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Empire Performance Coaching - Authentication System Comprehensive Test › 10. Performance and Loading › should load authentication page quickly" classname="auth-system-comprehensive.spec.ts" time="0.004">
+<failure message="auth-system-comprehensive.spec.ts:395:9 should load authentication page quickly" type="FAILURE">
+<![CDATA[  [Mobile Safari] › auth-system-comprehensive.spec.ts:395:9 › Empire Performance Coaching - Authentication System Comprehensive Test › 10. Performance and Loading › should load authentication page quickly 
+
+    Error: browserType.launch: Executable doesn't exist at /home/david/.cache/ms-playwright/webkit-2203/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

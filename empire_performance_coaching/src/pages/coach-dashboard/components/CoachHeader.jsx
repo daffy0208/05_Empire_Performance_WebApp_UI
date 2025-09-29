@@ -23,7 +23,7 @@ const CoachHeader = ({ coachName, currentDate, todaySessionCount, notifications 
 
   return (
     <header className="bg-gradient-to-r from-[#0E0E10] to-[#141416] border-b border-[#2A2A2E] px-6 py-4">
-      <div className="flex items-center justify-between max-w-7xl mx-auto">
+      <div className="flex items-center justify-between w-full">
         {/* Left: Logo + Coach Info */}
         <div className="flex items-center space-x-6">
           {/* Empire Performance Logo - consistent h-8 sizing */}

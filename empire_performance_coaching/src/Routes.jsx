@@ -13,6 +13,7 @@ const ParentDashboard = React.lazy(() => import('./pages/parent-dashboard'));
 const CoachDashboard = React.lazy(() => import('./pages/coach-dashboard'));
 const DirectorDashboard = React.lazy(() => import('./pages/director-dashboard'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
+const TestPage = React.lazy(() => import('./pages/TestPage'));
 
 // Component Imports
 import RoleBasedRouter from './components/ui/RoleBasedRouter';
@@ -72,6 +73,7 @@ function Routes() {
             <Route path="/public-landing-page" element={<PublicLandingPage />} />
             <Route path="/multi-step-booking-flow" element={<MultiStepBookingFlow />} />
             <Route path="/login-register" element={<LoginRegister />} />
+            <Route path="/test" element={<TestPage />} />
             
             {/* Protected Dashboard Routes */}
             <Route

@@ -8,12 +8,13 @@ const ProgressIndicator = ({ currentStep, totalSteps, stepTitle }) => {
     { number: 2, title: "Date & Time", icon: "Calendar" },
     { number: 3, title: "Coach", icon: "User" },
     { number: 4, title: "Player Details", icon: "FileText" },
-    { number: 5, title: "Payment", icon: "CreditCard" }
+    { number: 5, title: "Payment", icon: "CreditCard" },
+    { number: 6, title: "Confirmation", icon: "CheckCircle" }
   ];
 
   return (
     <div className="bg-card border-b border-border shadow-sm">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-6">
         {/* Step Title */}
         <div className="text-center mb-6">
           <motion.h1 

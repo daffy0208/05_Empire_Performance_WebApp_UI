@@ -85,9 +85,9 @@ const CoachPerformanceTable = () => {
   });
 
   const formatCurrency = (value) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('en-GB', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'GBP',
       minimumFractionDigits: 0
     })?.format(value);
   };

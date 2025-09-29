@@ -84,7 +84,7 @@ const WeeklyOverview = ({ weekData, currentDate }) => {
             <Icon name="DollarSign" size={16} className="text-success" />
             <span className="text-sm font-medium text-muted-foreground">Earnings</span>
           </div>
-          <div className="text-2xl font-bold text-foreground">${weeklyStats?.totalEarnings?.toFixed(0)}</div>
+          <div className="text-2xl font-bold text-foreground">£{weeklyStats?.totalEarnings?.toFixed(0)}</div>
         </div>
         
         <div className="bg-card border border-border rounded-lg p-4">

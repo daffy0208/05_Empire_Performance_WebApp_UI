@@ -17,9 +17,9 @@ const LoginForm = ({
         label="Email Address"
         type="email"
         name="email"
-        value={formData?.email}
+        value={formData.email}
         onChange={onInputChange}
-        error={errors?.email}
+        error={errors.email}
         placeholder="john@example.com"
         required
       />
@@ -27,18 +27,18 @@ const LoginForm = ({
         label="Password"
         type="password"
         name="password"
-        value={formData?.password}
+        value={formData.password}
         onChange={onInputChange}
-        error={errors?.password}
+        error={errors.password}
         placeholder="Enter your password"
         required
       />
       <div className="flex items-center justify-between">
         <Checkbox
           label="Remember me"
-          checked={formData?.rememberMe}
+          checked={formData.rememberMe}
           onChange={(e) => onInputChange({
-            target: { name: 'rememberMe', value: e?.target?.checked }
+            target: { name: 'rememberMe', value: e.target.checked }
           })}
         />
         
@@ -50,9 +50,9 @@ const LoginForm = ({
           Forgot password?
         </button>
       </div>
-      {errors?.submit && (
+      {errors.submit && (
         <div className="text-error text-sm text-center bg-error/10 p-3 rounded-md border border-error/20">
-          {errors?.submit}
+          {errors.submit}
         </div>
       )}
       <Button

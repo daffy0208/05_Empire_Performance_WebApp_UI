@@ -12,51 +12,95 @@ const CoachSpotlight = () => {
   const [loading, setLoading] = useState(true);
   const [selectedSpecialty, setSelectedSpecialty] = useState('all');
   
-  // Static fallback data based on requirements
+  // Real Empire Performance coaches data
   const fallbackCoaches = [
     {
-      id: 1,
-      name: "Jack Haggerty",
-      bio: "Specializing in individual player development with focus on finishing techniques and mentoring young talent.",
-      image: "/assets/images/no_image.png",
-      specialties: ["1-to-1 Development", "Finishing", "Mentoring"],
-      experience: "8+ years",
-      currentClub: "Glenvale FC",
-      locationsServed: ["Lochwinnoch"],
+      id: 'jack-haggerty',
+      name: 'Jack Haggerty',
+      bio: 'Professional player at Glenvale FC specializing in individual player development with focus on finishing techniques and mentoring young talent.',
+      image: '/assets/images/coaches/jack-haggerty.jpg',
+      specialties: ['1-to-1 Development', 'Finishing', 'Mentoring'],
+      experience: '12+ years',
+      currentClub: 'Glenvale FC',
+      locationsServed: ['Lochwinnoch'],
       rate: 75
     },
     {
-      id: 2,
-      name: "Malcolm McLean",
-      bio: "Expert in youth pathways and session design, implementing academy-level methodology for player progression.",
-      image: "/assets/images/no_image.png",
-      specialties: ["Youth Pathways", "Session Design", "Academy Methodology"],
-      experience: "10+ years",
-      currentClub: "Empire Performance",
-      locationsServed: ["Airdrie", "East Kilbride"],
+      id: 'mairead-fulton',
+      name: 'Mairead Fulton',
+      bio: 'Professional player at Heart of Midlothian FC focusing on midfield development and building professionalism in young players. Specialist in women\'s football.',
+      image: '/assets/images/coaches/mairead-fulton.jpg',
+      specialties: ['Women & Girls', 'Midfield', 'Professionalism'],
+      experience: '15+ years',
+      currentClub: 'Heart of Midlothian FC',
+      locationsServed: ['Glasgow South', 'East Kilbride'],
+      rate: 85
+    },
+    {
+      id: 'stephen-mallan',
+      name: 'Stephen Mallan',
+      bio: 'Professional player at St Johnstone FC renowned for his set piece expertise and long-range shooting ability. Specializes in developing technical midfield skills.',
+      image: '/assets/images/coaches/stephen-mallan.jpg',
+      specialties: ['Set Pieces', 'Long-Range Shooting', 'Midfield'],
+      experience: '10+ years',
+      currentClub: 'St Johnstone FC',
+      locationsServed: ['Lochwinnoch', 'Airdrie'],
       rate: 80
     },
     {
-      id: 3,
-      name: "Mairead Fulton",
-      bio: "Professional women\'s coach focusing on midfield development and building professionalism in young players.",
-      image: "/assets/images/no_image.png",
-      specialties: ["Women & Girls", "Midfield", "Professionalism"],
-      experience: "6+ years",
-      currentClub: "Glasgow City FC",
-      locationsServed: ["Glasgow South"],
+      id: 'katie-lockwood',
+      name: 'Katie Lockwood',
+      bio: 'Professional player at Glasgow City FC with attack-minded coaching specializing in finishing and high-pressing tactical systems for competitive players.',
+      image: '/assets/images/coaches/katie-lockwood.jpg',
+      specialties: ['Attacking', 'Finishing', 'Pressing'],
+      experience: '8+ years',
+      currentClub: 'Glasgow City FC',
+      locationsServed: ['East Kilbride', 'Glasgow South'],
       rate: 85
     },
     {
-      id: 4,
-      name: "Katie Lockwood",
-      bio: "Attack-minded coach specializing in finishing and high-pressing tactical systems for competitive players.",
-      image: "/assets/images/no_image.png",
-      specialties: ["Attacking", "Finishing", "Pressing"],
-      experience: "7+ years",
-      currentClub: "Glasgow City FC",
-      locationsServed: ["East Kilbride", "Glasgow South"],
-      rate: 85
+      id: 'aidan-nesbitt',
+      name: 'Aidan Nesbitt',
+      bio: 'Professional player at Falkirk FC focusing on creative play development, first touch mastery, and final third decision making for attacking players.',
+      image: '/assets/images/coaches/aidan-nesbitt.jpg',
+      specialties: ['Creativity', 'First Touch', 'Final Third'],
+      experience: '7+ years',
+      currentClub: 'Falkirk FC',
+      locationsServed: ['East Kilbride'],
+      rate: 78
+    },
+    {
+      id: 'malcolm-mclean',
+      name: 'Malcolm McLean',
+      bio: 'Expert in youth pathways and session design, implementing academy-level methodology for player progression. Full-time Empire Performance coach.',
+      image: '/assets/images/coaches/malcolm-mclean.jpg',
+      specialties: ['Youth Pathways', 'Session Design', 'Academy Methodology'],
+      experience: '14+ years',
+      currentClub: 'Empire Performance',
+      locationsServed: ['Airdrie', 'East Kilbride'],
+      rate: 80
+    },
+    {
+      id: 'benji-wright',
+      name: 'Benji Wright',
+      bio: 'Professional player at Cumnock Juniors specializing in physical development and conditioning. Expert in speed and agility training for young athletes.',
+      image: '/assets/images/coaches/benji-wright.jpg',
+      specialties: ['Physical Development', 'Conditioning', 'Speed/Agility'],
+      experience: '6+ years',
+      currentClub: 'Cumnock Juniors',
+      locationsServed: ['Airdrie'],
+      rate: 75
+    },
+    {
+      id: 'fraser-mcfadzean',
+      name: 'Fraser McFadzean',
+      bio: 'Professional player at Glenvale FC with expertise in ball mastery and technical foundations. Focuses on developing core technical skills in young players.',
+      image: '/assets/images/coaches/fraser-mcfadzean.jpg',
+      specialties: ['Ball Mastery', 'Technical Foundations', 'Youth Development'],
+      experience: '9+ years',
+      currentClub: 'Glenvale FC',
+      locationsServed: ['Lochwinnoch', 'Glasgow South'],
+      rate: 78
     }
   ];
   
@@ -82,8 +126,8 @@ const CoachSpotlight = () => {
 
         if (error) {
           console.error('Error fetching coaches:', error);
-          setCoaches([]);
-          setFilteredCoaches([]);
+          setCoaches(fallbackCoaches);
+          setFilteredCoaches(fallbackCoaches);
         } else {
           const transformedCoaches = data?.map(coach => ({
             id: coach?.id,
@@ -102,8 +146,8 @@ const CoachSpotlight = () => {
         }
       } catch (err) {
         console.error('Error:', err);
-        setCoaches([]);
-        setFilteredCoaches([]);
+        setCoaches(fallbackCoaches);
+        setFilteredCoaches(fallbackCoaches);
       } finally {
         setLoading(false);
       }
@@ -160,7 +204,7 @@ const CoachSpotlight = () => {
   if (loading) {
     return (
       <section id="coaches" className="relative py-16 md:py-24" style={{ backgroundColor: '#141416' }}>
-        <div className="max-w-[1440px] mx-auto px-6 md:px-8">
+        <div className="w-full px-6 md:px-8">
           <div className="flex items-center justify-center py-12">
             <Icon name="Loader2" size={24} className="text-[#C9A43B] animate-spin" />
             <span className="ml-3" style={{ color: '#CFCFCF' }}>Loading coaches...</span>
@@ -172,7 +216,7 @@ const CoachSpotlight = () => {
 
   return (
     <section id="coaches" className="relative py-16 md:py-24" style={{ backgroundColor: '#141416' }}>
-      <div className="max-w-[1440px] mx-auto px-6 md:px-8">
+      <div className="w-full px-6 md:px-8">
         {/* Coach Team Section */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

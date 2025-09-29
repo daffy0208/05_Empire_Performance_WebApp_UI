@@ -36,7 +36,7 @@ const ValuesSection = () => {
 
   return (
     <section className="relative empire-surface-1">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-24">
+      <div className="w-full px-6 md:px-10 py-16 md:py-24">
         {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

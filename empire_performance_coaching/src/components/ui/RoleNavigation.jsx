@@ -100,7 +100,7 @@ const RoleNavigation = ({ userRole = 'parent', userName = 'John Smith', onLogout
 
   return (
     <nav className={`${config?.color} text-white shadow-lg`}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Brand with Logo */}
           <div className="flex items-center space-x-4">
@@ -146,24 +146,24 @@ const RoleNavigation = ({ userRole = 'parent', userName = 'John Smith', onLogout
             </button>
 
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
-                <div className="px-4 py-2 text-sm text-secondary border-b">
-                  <p className="font-header font-medium">{userName}</p>
-                  <p className="text-muted-foreground capitalize font-header">{userRole}</p>
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
+                <div className="px-4 py-2 text-sm text-gray-900 border-b border-gray-200">
+                  <p className="font-header font-medium text-gray-900">{userName}</p>
+                  <p className="text-gray-600 capitalize font-header">{userRole}</p>
                 </div>
-                <button className="flex items-center space-x-2 w-full px-4 py-2 text-sm text-secondary hover:bg-gray-100 font-header">
-                  <Icon name="Settings" size={16} />
+                <button className="flex items-center space-x-2 w-full px-4 py-2 text-sm text-gray-900 hover:bg-gray-100 font-header">
+                  <Icon name="Settings" size={16} className="text-gray-600" />
                   <span>Settings</span>
                 </button>
-                <button className="flex items-center space-x-2 w-full px-4 py-2 text-sm text-secondary hover:bg-gray-100 font-header">
-                  <Icon name="HelpCircle" size={16} />
+                <button className="flex items-center space-x-2 w-full px-4 py-2 text-sm text-gray-900 hover:bg-gray-100 font-header">
+                  <Icon name="HelpCircle" size={16} className="text-gray-600" />
                   <span>Help</span>
                 </button>
-                <button 
+                <button
                   onClick={handleLogout}
-                  className="flex items-center space-x-2 w-full px-4 py-2 text-sm text-secondary hover:bg-gray-100 border-t font-header"
+                  className="flex items-center space-x-2 w-full px-4 py-2 text-sm text-gray-900 hover:bg-gray-100 border-t border-gray-200 font-header"
                 >
-                  <Icon name="LogOut" size={16} />
+                  <Icon name="LogOut" size={16} className="text-gray-600" />
                   <span>Sign Out</span>
                 </button>
               </div>

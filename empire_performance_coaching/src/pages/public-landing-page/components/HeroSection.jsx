@@ -27,7 +27,7 @@ const HeroSection = () => {
         </div>
       </motion.div>
       {/* Main Content - bounded and centered */}
-      <div className="hero-content max-w-[1440px] mx-auto px-6 md:px-8 py-16 md:py-24 min-h-screen flex items-center justify-center">
+      <div className="hero-content w-full px-6 md:px-8 py-16 md:py-24 min-h-screen flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

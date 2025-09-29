@@ -35,7 +35,7 @@ const FooterSection = () => {
 
   return (
     <footer className="bg-[#0E0E10] border-t border-[#2A2A2E] py-16">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-8">
+      <div className="w-full px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           
           {/* Logo & Company Info */}

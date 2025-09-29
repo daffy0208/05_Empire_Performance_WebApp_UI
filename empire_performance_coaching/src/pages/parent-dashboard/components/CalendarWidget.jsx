@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 
 const CalendarWidget = ({ sessions, onDateSelect }) => {
@@ -56,18 +56,19 @@ const CalendarWidget = ({ sessions, onDateSelect }) => {
         <button
           key={date}
           onClick={() => onDateSelect && onDateSelect(new Date(year, month, date))}
-          className={`h-10 w-10 rounded-lg text-sm font-medium transition-smooth relative ${
-            isCurrentDay 
-              ? 'bg-primary text-primary-foreground' 
+          className={`h-10 w-10 rounded-lg text-sm font-medium transition-all duration-200 relative ${
+            isCurrentDay
+              ? 'bg-[#C9A43B] text-[#000000]'
               : hasSession
-                ? 'bg-accent/20 text-accent hover:bg-accent/30' :'text-foreground hover:bg-muted'
+                ? 'bg-[#C9A43B]/20 text-[#C9A43B] hover:bg-[#C9A43B]/30'
+                : 'text-[#F5F5F5] hover:bg-[#2A2A2E]'
           }`}
         >
           {date}
           {hasSession && (
             <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2">
               <div className={`w-1 h-1 rounded-full ${
-                isCurrentDay ? 'bg-primary-foreground' : 'bg-accent'
+                isCurrentDay ? 'bg-[#000000]' : 'bg-[#C9A43B]'
               }`}></div>
             </div>
           )}
@@ -79,31 +80,37 @@ const CalendarWidget = ({ sessions, onDateSelect }) => {
   };
 
   return (
-    <div className="bg-card rounded-lg p-6 shadow-elevation-1">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-semibold text-foreground">
-          {monthNames?.[month]} {year}
-        </h2>
-        <div className="flex space-x-1">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => navigateMonth(-1)}
-            iconName="ChevronLeft"
-          />
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => navigateMonth(1)}
-            iconName="ChevronRight"
-          />
+    <div className="p-6">
+      <div className="mb-4">
+        <h2 className="text-lg font-semibold mb-2" style={{ color: '#F5F5F5' }}>Session Calendar</h2>
+        <p className="text-sm mb-4" style={{ color: '#CFCFCF' }}>
+          View your scheduled sessions and click dates to book new sessions
+        </p>
+        <div className="flex items-center justify-between">
+          <h3 className="text-base font-medium" style={{ color: '#F5F5F5' }}>
+            {monthNames?.[month]} {year}
+          </h3>
+          <div className="flex space-x-1">
+            <button
+              onClick={() => navigateMonth(-1)}
+              className="p-2 rounded-lg bg-[#2A2A2E] text-[#CFCFCF] hover:bg-[#C9A43B]/20 hover:text-[#C9A43B] transition-all duration-200"
+            >
+              <Icon name="ChevronLeft" size={16} />
+            </button>
+            <button
+              onClick={() => navigateMonth(1)}
+              className="p-2 rounded-lg bg-[#2A2A2E] text-[#CFCFCF] hover:bg-[#C9A43B]/20 hover:text-[#C9A43B] transition-all duration-200"
+            >
+              <Icon name="ChevronRight" size={16} />
+            </button>
+          </div>
         </div>
       </div>
       {/* Day headers */}
       <div className="grid grid-cols-7 gap-1 mb-2">
         {dayNames?.map(day => (
           <div key={day} className="h-8 flex items-center justify-center">
-            <span className="text-xs font-medium text-muted-foreground">{day}</span>
+            <span className="text-xs font-medium" style={{ color: '#CFCFCF' }}>{day}</span>
           </div>
         ))}
       </div>
@@ -112,23 +119,26 @@ const CalendarWidget = ({ sessions, onDateSelect }) => {
         {renderCalendarDays()}
       </div>
       {/* Legend */}
-      <div className="mt-4 pt-4 border-t border-border">
+      <div className="mt-4 pt-4 border-t border-[#2A2A2E]">
         <div className="flex items-center justify-between text-xs">
           <div className="flex items-center space-x-4">
             <div className="flex items-center">
-              <div className="w-3 h-3 bg-primary rounded-full mr-2"></div>
-              <span className="text-muted-foreground">Today</span>
+              <div className="w-3 h-3 bg-[#C9A43B] rounded-full mr-2"></div>
+              <span style={{ color: '#CFCFCF' }}>Today</span>
             </div>
             <div className="flex items-center">
-              <div className="w-3 h-3 bg-accent/20 rounded-full mr-2"></div>
-              <span className="text-muted-foreground">Sessions</span>
+              <div className="w-3 h-3 bg-[#C9A43B]/20 rounded-full mr-2"></div>
+              <span style={{ color: '#CFCFCF' }}>Sessions</span>
             </div>
           </div>
-          <span className="text-muted-foreground">
-            {sessions?.filter(s => {
-              const sessionDate = new Date(s.date);
-              return sessionDate?.getMonth() === month && sessionDate?.getFullYear() === year;
-            })?.length} sessions this month
+          <span style={{ color: '#CFCFCF' }}>
+            {(() => {
+              const count = sessions?.filter(s => {
+                const sessionDate = new Date(s.date);
+                return sessionDate?.getMonth() === month && sessionDate?.getFullYear() === year;
+              })?.length || 0;
+              return count === 1 ? '1 session this month' : `${count} sessions this month`;
+            })()}
           </span>
         </div>
       </div>

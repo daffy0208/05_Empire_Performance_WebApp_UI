@@ -1,6 +1,6 @@
 import React from "react";
 import { Check, Minus } from "lucide-react";
-import { cn } from "../../utils/cn";
+import { cn } from "../../utils/cn.ts";
 
 const Checkbox = React.forwardRef(({
     className,
@@ -16,7 +16,7 @@ const Checkbox = React.forwardRef(({
     ...props
 }, ref) => {
     // Generate unique ID if not provided
-    const checkboxId = id || `checkbox-${Math.random()?.toString(36)?.substr(2, 9)}`;
+    const checkboxId = id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
 
     // Size variants
     const sizeClasses = {
@@ -43,7 +43,7 @@ const Checkbox = React.forwardRef(({
                     htmlFor={checkboxId}
                     className={cn(
                         "peer shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground cursor-pointer transition-colors",
-                        sizeClasses?.[size],
+                        sizeClasses[size],
                         checked && "bg-primary text-primary-foreground border-primary",
                         indeterminate && "bg-primary text-primary-foreground border-primary",
                         error && "border-destructive",

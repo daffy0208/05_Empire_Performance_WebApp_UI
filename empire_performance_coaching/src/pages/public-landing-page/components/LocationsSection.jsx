@@ -91,7 +91,7 @@ const LocationsSection = () => {
   if (loading) {
     return (
       <section id="locations" className="relative py-16 md:py-24" style={{ backgroundColor: '#0E0E10' }}>
-        <div className="max-w-[1440px] mx-auto px-6 md:px-8">
+        <div className="w-full px-6 md:px-8">
           <div className="flex items-center justify-center py-12">
             <Icon name="Loader2" size={24} className="text-[#C9A43B] animate-spin" />
             <span className="ml-3 text-[#CFCFCF]">Loading locations...</span>
@@ -103,7 +103,7 @@ const LocationsSection = () => {
 
   return (
     <section id="locations" className="relative py-16 md:py-24" style={{ backgroundColor: '#0E0E10' }}>
-      <div className="max-w-[1440px] mx-auto px-6 md:px-8">
+      <div className="w-full px-6 md:px-8">
         {/* Section Header with Book CTA - appears BEFORE Coaches */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

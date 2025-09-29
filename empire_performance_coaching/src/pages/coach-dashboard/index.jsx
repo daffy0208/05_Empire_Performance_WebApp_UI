@@ -200,7 +200,7 @@ const CoachDashboard = () => {
             todaySessionCount={mockStats?.todaySessions}
           />
 
-          <div className="max-w-[1440px] mx-auto px-6 md:px-8 py-8">
+          <div className="w-full px-6 md:px-8 py-8">
             {/* Coach Availability Management Section */}
             <div className="mb-8">
               <div className="flex items-center justify-between mb-6">

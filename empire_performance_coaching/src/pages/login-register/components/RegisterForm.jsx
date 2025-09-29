@@ -3,6 +3,7 @@ import Input from '../../../components/ui/Input';
 import Button from '../../../components/ui/Button';
 import Select from '../../../components/ui/Select';
 import { Checkbox } from '../../../components/ui/Checkbox';
+import PasswordStrength from '../../../components/ui/PasswordStrength';
 
 const RegisterForm = ({ 
   formData, 
@@ -14,7 +15,8 @@ const RegisterForm = ({
 }) => {
   const roleOptions = [
     { value: 'parent', label: 'Parent/Guardian' },
-    { value: 'coach', label: 'Coach' }
+    { value: 'coach', label: 'Coach' },
+    { value: 'director', label: 'Director' }
   ];
 
   return (
@@ -69,16 +71,19 @@ const RegisterForm = ({
         placeholder="Select your role"
         required
       />
-      <Input
-        label="Password"
-        type="password"
-        name="password"
-        value={formData?.password}
-        onChange={onInputChange}
-        error={errors?.password}
-        placeholder="Create a strong password"
-        required
-      />
+      <div>
+        <Input
+          label="Password"
+          type="password"
+          name="password"
+          value={formData?.password}
+          onChange={onInputChange}
+          error={errors?.password}
+          placeholder="Create a strong password"
+          required
+        />
+        <PasswordStrength password={formData?.password} />
+      </div>
       <Input
         label="Confirm Password"
         type="password"

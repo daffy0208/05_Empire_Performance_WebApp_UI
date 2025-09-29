@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 
 // Components
 import ProgressIndicator from './components/ProgressIndicator';
@@ -14,6 +15,7 @@ import NavigationButtons from './components/NavigationButtons';
 
 const MultiStepBookingFlow = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [currentStep, setCurrentStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   
@@ -31,6 +33,35 @@ const MultiStepBookingFlow = () => {
   const [bookingConfirmed, setBookingConfirmed] = useState(false);
 
   const totalSteps = 6;
+
+  // Add form persistence
+  useEffect(() => {
+    const saved = localStorage.getItem('booking-flow-data');
+    if (saved) {
+      try {
+        const data = JSON.parse(saved);
+        setSelectedLocation(data.location || null);
+        setSelectedDate(data.date ? new Date(data.date) : new Date());
+        setSelectedTimeSlot(data.timeSlot || null);
+        setSelectedCoach(data.coach || null);
+        setPlayerDetails(data.player || null);
+      } catch (error) {
+        console.error('Error loading saved booking data:', error);
+      }
+    }
+  }, []);
+
+  // Save form data on changes
+  useEffect(() => {
+    const data = {
+      location: selectedLocation,
+      date: selectedDate,
+      timeSlot: selectedTimeSlot,
+      coach: selectedCoach,
+      player: playerDetails
+    };
+    localStorage.setItem('booking-flow-data', JSON.stringify(data));
+  }, [selectedLocation, selectedDate, selectedTimeSlot, selectedCoach, playerDetails]);
 
   const steps = [
     { number: 1, title: 'Location', component: 'location' },
@@ -50,7 +81,7 @@ const MultiStepBookingFlow = () => {
       case 3:
         return selectedCoach !== null;
       case 4:
-        return playerDetails !== null;
+        return playerDetails !== null && (playerDetails.playerName?.trim() || playerDetails.athlete_id);
       case 5:
         return paymentDetails !== null;
       case 6:
@@ -139,6 +170,7 @@ const MultiStepBookingFlow = () => {
           <PlayerDetailsStep
             playerDetails={playerDetails}
             onPlayerDetailsChange={setPlayerDetails}
+            user={user}
             {...stepProps}
           />
         );
@@ -179,7 +211,7 @@ const MultiStepBookingFlow = () => {
 
   return (
     <div className="min-h-screen bg-[#0E0E10] pt-24 pb-8">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-8">
+      <div className="w-full px-6 md:px-8">
         {/* Progress Indicator */}
         <div className="mb-8">
           <ProgressIndicator 

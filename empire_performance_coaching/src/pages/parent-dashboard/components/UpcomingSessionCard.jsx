@@ -90,17 +90,38 @@ const UpcomingSessionCard = ({ session, onReschedule, onCancel, onViewNotes }) =
           <p className="text-sm text-muted-foreground">{session?.notes}</p>
         </div>
       )}
-      <div className="flex items-center justify-between">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setShowActions(!showActions)}
-          iconName={showActions ? "ChevronUp" : "ChevronDown"}
-          iconPosition="right"
-        >
-          Actions
-        </Button>
-        
+      {/* Primary Actions - Always Visible */}
+      <div className="flex items-center justify-between gap-2">
+        <div className="flex gap-2">
+          {canModify() && (
+            <>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => onReschedule(session?.id)}
+                iconName="Calendar"
+                iconPosition="left"
+              >
+                Reschedule
+              </Button>
+              <Button
+                variant="destructive"
+                size="sm"
+                onClick={() => onCancel(session?.id)}
+                iconName="X"
+                iconPosition="left"
+              >
+                Cancel
+              </Button>
+            </>
+          )}
+          {!canModify() && (
+            <div className="text-xs text-muted-foreground bg-muted px-3 py-2 rounded-md">
+              Changes not allowed within 24 hours of session
+            </div>
+          )}
+        </div>
+
         {session?.hasNotes && (
           <Button
             variant="outline"
@@ -113,39 +134,45 @@ const UpcomingSessionCard = ({ session, onReschedule, onCancel, onViewNotes }) =
           </Button>
         )}
       </div>
-      {showActions && (
-        <div className="mt-4 pt-4 border-t border-border">
-          <div className="flex flex-wrap gap-2">
-            {canModify() && (
-              <>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => onReschedule(session?.id)}
-                  iconName="Calendar"
-                  iconPosition="left"
-                >
-                  Reschedule
-                </Button>
-                <Button
-                  variant="destructive"
-                  size="sm"
-                  onClick={() => onCancel(session?.id)}
-                  iconName="X"
-                  iconPosition="left"
-                >
-                  Cancel
-                </Button>
-              </>
-            )}
-            {!canModify() && (
-              <p className="text-xs text-muted-foreground">
-                Changes not allowed within 24 hours of session
-              </p>
-            )}
-          </div>
+
+      {/* Secondary Actions */}
+      <div className="mt-3 pt-3 border-t border-border">
+        <div className="flex items-center justify-between">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setShowActions(!showActions)}
+            iconName={showActions ? "ChevronUp" : "ChevronDown"}
+            iconPosition="right"
+            className="text-muted-foreground"
+          >
+            More Options
+          </Button>
+
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => {
+              alert('Cancellation Policy:\n\n• 24+ hours notice: Full refund\n• 12-24 hours notice: 50% refund\n• Less than 12 hours: No refund\n• Emergency cancellations will be reviewed case by case\n\nRescheduling is free with 24+ hours notice.');
+            }}
+            iconName="Info"
+            iconPosition="left"
+            className="text-muted-foreground"
+          >
+            Cancellation Policy
+          </Button>
         </div>
-      )}
+
+        {showActions && (
+          <div className="mt-3 pt-3 border-t border-border">
+            <div className="text-center">
+              <p className="text-xs text-muted-foreground">
+                Need help? Contact support for assistance with your booking.
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

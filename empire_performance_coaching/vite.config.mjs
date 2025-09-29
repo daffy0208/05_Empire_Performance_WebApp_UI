@@ -10,7 +10,7 @@ export default defineConfig({
   // comment this out if that isn't relevant for your project
   build: {
     outDir: "build",
-    chunkSizeWarningLimit: 2000,
+    chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -18,7 +18,10 @@ export default defineConfig({
           router: ["react-router-dom"],
           supabase: ["@supabase/supabase-js", "@supabase/auth-ui-react"],
           charts: ["recharts", "d3"],
-          ui: ["framer-motion", "lucide-react", "class-variance-authority", "clsx"],
+          forms: ["react-hook-form", "zod"],
+          ui: ["framer-motion", "lucide-react"],
+          utils: ["clsx", "tailwind-merge", "class-variance-authority"],
+          monitoring: ["@sentry/react", "@sentry/tracing"],
         }
       }
     }
@@ -48,12 +51,39 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
     include: ['src/**/*.{test,spec}.{js,jsx,ts,tsx}'],
-    exclude: ['node_modules/**', 'dist/**', 'build/**', 'tests/**']
+    exclude: ['node_modules/**', 'dist/**', 'build/**', 'tests/**'],
+    globals: true,
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+      exclude: [
+        'node_modules/**',
+        'src/**/*.d.ts',
+        'src/**/*.config.{js,ts}',
+        'src/main.jsx',
+        'src/index.jsx',
+        'src/**/*.stories.{js,ts,jsx,tsx}',
+        'tests/**'
+      ],
+      thresholds: {
+        global: {
+          branches: 70,
+          functions: 70,
+          lines: 70,
+          statements: 70
+        }
+      }
+    }
   },
   server: {
-    port: "4028",
+    port: 4028,
     host: "0.0.0.0",
     strictPort: true,
-    allowedHosts: ['.amazonaws.com', '.builtwithrocket.new']
+    allowedHosts: ['.amazonaws.com', '.builtwithrocket.new'],
+    historyApiFallback: true
+  },
+  preview: {
+    port: 4028,
+    host: "0.0.0.0"
   }
 });

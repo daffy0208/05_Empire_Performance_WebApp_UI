@@ -4,14 +4,16 @@ import Input from '../../../components/ui/Input';
 import { Checkbox } from '../../../components/ui/Checkbox';
 import Button from '../../../components/ui/Button';
 
-const PaymentStep = ({ 
-  selectedDate, 
-  selectedCoach, 
-  playerData, 
-  cadence, 
-  onComplete,
-  isProcessing 
+const PaymentStep = ({
+  paymentDetails,
+  onPaymentDetailsChange,
+  bookingDetails,
+  onNext,
+  onPrevious
 }) => {
+  const selectedDate = bookingDetails?.date;
+  const selectedCoach = bookingDetails?.coach;
+  const playerData = bookingDetails?.player;
   const [paymentData, setPaymentData] = useState({
     cardNumber: '',
     expiryDate: '',
@@ -63,49 +65,52 @@ const PaymentStep = ({
   const validatePaymentForm = () => {
     const newErrors = {};
 
-    if (!paymentData?.cardNumber?.replace(/\s/g, '')) {
-      newErrors.cardNumber = 'Card number is required';
-    } else if (paymentData?.cardNumber?.replace(/\s/g, '')?.length < 16) {
-      newErrors.cardNumber = 'Please enter a valid card number';
-    }
-
-    if (!paymentData?.expiryDate) {
-      newErrors.expiryDate = 'Expiry date is required';
-    } else if (!/^\d{2}\/\d{2}$/?.test(paymentData?.expiryDate)) {
-      newErrors.expiryDate = 'Please enter a valid expiry date (MM/YY)';
-    }
-
-    if (!paymentData?.cvv) {
-      newErrors.cvv = 'CVV is required';
-    } else if (paymentData?.cvv?.length < 3) {
-      newErrors.cvv = 'Please enter a valid CVV';
-    }
-
-    if (!paymentData?.cardholderName?.trim()) {
-      newErrors.cardholderName = 'Cardholder name is required';
-    }
-
-    if (!paymentData?.billingZip?.trim()) {
-      newErrors.billingZip = 'Billing ZIP code is required';
-    }
-
     if (!acceptedTerms) {
       newErrors.terms = 'Please accept the terms and conditions';
     }
 
+    // Add required field validation
+    if (!paymentData.cardNumber.replace(/\s/g, '')) {
+      newErrors.cardNumber = 'Card number is required';
+    } else if (paymentData.cardNumber.replace(/\s/g, '').length < 16) {
+      newErrors.cardNumber = 'Please enter a valid card number';
+    }
+
+    if (!paymentData.cardholderName.trim()) {
+      newErrors.cardholderName = 'Cardholder name is required';
+    }
+
+    if (!paymentData.expiryDate) {
+      newErrors.expiryDate = 'Expiry date is required';
+    } else if (!/^\d{2}\/\d{2}$/.test(paymentData.expiryDate)) {
+      newErrors.expiryDate = 'Please enter a valid expiry date (MM/YY)';
+    }
+
+    if (!paymentData.cvv) {
+      newErrors.cvv = 'CVV is required';
+    } else if (paymentData.cvv.length < 3) {
+      newErrors.cvv = 'Please enter a valid CVV';
+    }
+
+    if (!paymentData.billingZip) {
+      newErrors.billingZip = 'ZIP code is required';
+    }
+
     setErrors(newErrors);
-    return Object.keys(newErrors)?.length === 0;
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e) => {
     e?.preventDefault();
     if (validatePaymentForm()) {
-      onComplete(paymentData);
+      // Save payment details and proceed to next step
+      onPaymentDetailsChange(paymentData);
+      onNext();
     }
   };
 
-  // Calculate pricing
-  const sessionPrice = selectedCoach?.pricePerSession || 0;
+  // Calculate pricing - ensure we get the actual coach price
+  const sessionPrice = selectedCoach?.pricePerSession || 75; // Default to £75 if no coach price
   const setupFee = 25;
   const subtotal = sessionPrice + setupFee;
   const tax = subtotal * 0.08; // 8% tax
@@ -123,17 +128,17 @@ const PaymentStep = ({
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <h2 className="text-2xl font-bold text-foreground mb-2">
+        <h2 className="text-2xl font-bold text-[#F5F5F5] mb-2">
           Secure Payment
         </h2>
-        <p className="text-muted-foreground">
+        <p className="text-[#CFCFCF]">
           Complete your booking with secure payment processing
         </p>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Payment Form */}
         <div className="lg:col-span-2">
-          <form onSubmit={handleSubmit} className="bg-card rounded-xl border border-border p-6 shadow-elevation-1 space-y-6">
+          <form onSubmit={handleSubmit} className="bg-gradient-to-br from-[#1A1A1D] to-[#141416] rounded-xl border border-[#2A2A2E] p-6 shadow-elevation-1 space-y-6">
             {/* Security Badge */}
             <div className="flex items-center justify-center space-x-2 p-3 bg-success/10 border border-success/20 rounded-lg">
               <Icon name="Shield" size={20} className="text-success" />
@@ -144,7 +149,7 @@ const PaymentStep = ({
 
             {/* Card Information */}
             <div>
-              <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center">
+              <h3 className="text-lg font-semibold text-[#F5F5F5] mb-4 flex items-center">
                 <Icon name="CreditCard" size={20} className="mr-2 text-primary" />
                 Payment Information
               </h3>
@@ -162,7 +167,7 @@ const PaymentStep = ({
                     required
                   />
                   {paymentData?.cardNumber && (
-                    <div className="absolute right-3 top-8 text-sm font-medium text-muted-foreground">
+                    <div className="absolute right-3 top-8 text-sm font-medium text-[#CFCFCF]">
                       {getCardType(paymentData?.cardNumber)}
                     </div>
                   )}
@@ -216,7 +221,7 @@ const PaymentStep = ({
 
             {/* Terms and Conditions */}
             <div className="space-y-4">
-              <div className="border-t border-border pt-4">
+              <div className="border-t border-[#2A2A2E] pt-4">
                 <Checkbox
                   label={`I agree to the Terms of Service and Privacy Policy`}
                   checked={acceptedTerms}
@@ -226,10 +231,10 @@ const PaymentStep = ({
                 />
               </div>
 
-              <div className="bg-muted/50 rounded-lg p-4">
-                <h4 className="font-medium text-foreground mb-2">Important Notes:</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Your card will be charged ${sessionPrice} for the first session</li>
+              <div className="bg-[#1A1A1D]/50 rounded-lg p-4">
+                <h4 className="font-medium text-[#F5F5F5] mb-2">Important Notes:</h4>
+                <ul className="text-sm text-[#CFCFCF] space-y-1">
+                  <li>• Your card will be charged £{sessionPrice} for the first session</li>
                   <li>• Future sessions will be automatically charged 24 hours before each session</li>
                   <li>• You can cancel or reschedule up to 24 hours before any session</li>
                   <li>• No-shows will be charged the full session amount</li>
@@ -243,18 +248,17 @@ const PaymentStep = ({
               variant="default"
               size="lg"
               fullWidth
-              loading={isProcessing}
               disabled={!acceptedTerms}
             >
-              {isProcessing ? 'Processing Payment...' : `Complete Booking - $${total?.toFixed(2)}`}
+              Complete Booking - £{total?.toFixed(2)}
             </Button>
           </form>
         </div>
 
         {/* Booking Summary */}
         <div className="lg:col-span-1">
-          <div className="bg-card rounded-xl border border-border p-6 shadow-elevation-1 sticky top-4">
-            <h3 className="text-lg font-semibold text-foreground mb-4">
+          <div className="bg-gradient-to-br from-[#1A1A1D] to-[#141416] rounded-xl border border-[#2A2A2E] p-6 shadow-elevation-1 sticky top-4">
+            <h3 className="text-lg font-semibold text-[#F5F5F5] mb-4">
               Booking Summary
             </h3>
             
@@ -263,8 +267,8 @@ const PaymentStep = ({
               <div className="flex items-center space-x-3">
                 <Icon name="Calendar" size={16} className="text-primary" />
                 <div>
-                  <div className="text-sm font-medium text-foreground">Training Date</div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-sm font-medium text-[#F5F5F5]">Training Date</div>
+                  <div className="text-sm text-[#CFCFCF]">
                     {selectedDate?.toLocaleDateString('en-US', { 
                       weekday: 'long', 
                       month: 'long', 
@@ -278,8 +282,8 @@ const PaymentStep = ({
               <div className="flex items-center space-x-3">
                 <Icon name="User" size={16} className="text-primary" />
                 <div>
-                  <div className="text-sm font-medium text-foreground">Coach</div>
-                  <div className="text-sm text-muted-foreground">{selectedCoach?.name}</div>
+                  <div className="text-sm font-medium text-[#F5F5F5]">Coach</div>
+                  <div className="text-sm text-[#CFCFCF]">{selectedCoach?.name}</div>
                 </div>
               </div>
 
@@ -287,9 +291,9 @@ const PaymentStep = ({
               <div className="flex items-center space-x-3">
                 <Icon name="UserCheck" size={16} className="text-primary" />
                 <div>
-                  <div className="text-sm font-medium text-foreground">Player</div>
-                  <div className="text-sm text-muted-foreground">
-                    {playerData?.firstName} {playerData?.lastName}
+                  <div className="text-sm font-medium text-[#F5F5F5]">Player</div>
+                  <div className="text-sm text-[#CFCFCF]">
+                    {playerData?.playerName || 'Player information'}
                   </div>
                 </div>
               </div>
@@ -298,42 +302,42 @@ const PaymentStep = ({
               <div className="flex items-center space-x-3">
                 <Icon name="Repeat" size={16} className="text-primary" />
                 <div>
-                  <div className="text-sm font-medium text-foreground">Schedule</div>
-                  <div className="text-sm text-muted-foreground">
-                    {cadence === 'weekly' ? 'Weekly' : 'Bi-weekly'} sessions
+                  <div className="text-sm font-medium text-[#F5F5F5]">Schedule</div>
+                  <div className="text-sm text-[#CFCFCF]">
+                    Weekly sessions
                   </div>
                 </div>
               </div>
 
               {/* Pricing Breakdown */}
-              <div className="border-t border-border pt-4 space-y-2">
+              <div className="border-t border-[#2A2A2E] pt-4 space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Session fee</span>
-                  <span className="text-foreground">${sessionPrice?.toFixed(2)}</span>
+                  <span className="text-[#CFCFCF]">Session fee</span>
+                  <span className="text-[#F5F5F5]">£{sessionPrice?.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Setup fee</span>
-                  <span className="text-foreground">${setupFee?.toFixed(2)}</span>
+                  <span className="text-[#CFCFCF]">Setup fee</span>
+                  <span className="text-[#F5F5F5]">£{setupFee?.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Tax</span>
-                  <span className="text-foreground">${tax?.toFixed(2)}</span>
+                  <span className="text-[#CFCFCF]">Tax</span>
+                  <span className="text-[#F5F5F5]">£{tax?.toFixed(2)}</span>
                 </div>
-                <div className="border-t border-border pt-2">
+                <div className="border-t border-[#2A2A2E] pt-2">
                   <div className="flex justify-between font-semibold">
-                    <span className="text-foreground">Total</span>
-                    <span className="text-foreground">${total?.toFixed(2)}</span>
+                    <span className="text-[#F5F5F5]">Total</span>
+                    <span className="text-[#F5F5F5]">£{total?.toFixed(2)}</span>
                   </div>
                 </div>
               </div>
 
               {/* Payment Security */}
-              <div className="bg-muted/50 rounded-lg p-3 mt-4">
+              <div className="bg-[#1A1A1D]/50 rounded-lg p-3 mt-4">
                 <div className="flex items-center space-x-2 mb-2">
                   <Icon name="Lock" size={14} className="text-success" />
                   <span className="text-sm font-medium text-success">Secure Payment</span>
                 </div>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-[#CFCFCF]">
                   Your payment information is encrypted and secure. We never store your card details.
                 </p>
               </div>

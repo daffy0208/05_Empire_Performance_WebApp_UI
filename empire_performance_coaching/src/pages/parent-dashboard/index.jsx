@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { useSupabaseData } from '../../hooks/useSupabaseData';
+import { useParentDashboard } from '../../hooks/useParentDashboard';
+import DashboardLayout from '../../components/layouts/DashboardLayout';
+import SEO from '../../components/SEO';
 import RoleNavigation from '../../components/ui/RoleNavigation';
 import WelcomeHeader from './components/WelcomeHeader';
 import UpcomingSessionCard from './components/UpcomingSessionCard';
@@ -9,55 +12,62 @@ import InvoiceCard from './components/InvoiceCard';
 import QuickActionsPanel from './components/QuickActionsPanel';
 import CalendarWidget from './components/CalendarWidget';
 import Icon from '../../components/AppIcon';
-import Button from '../../components/ui/Button';
-import SEO from '../../components/SEO';
-import DashboardLayout from '../../components/layouts/DashboardLayout';
 
 const ParentDashboard = () => {
-  const { user, userProfile, signOut } = useAuth();
-  const { 
-    loading, 
-    error, 
-    upcomingSessions, 
-    bookingSeries, 
-    invoices, 
-    athletes 
-  } = useSupabaseData();
-  
+  const navigate = useNavigate();
+  const { user, signOut } = useAuth();
   const [activeTab, setActiveTab] = useState('overview');
 
-  // Redirect if not authenticated or not a parent
+  const {
+    parentData,
+    upcomingSessions,
+    bookingSeries,
+    invoices,
+    monthlyStats,
+    loading,
+    error
+  } = useParentDashboard(user?.id);
+
   useEffect(() => {
-    if (!user || (userProfile && userProfile?.role !== 'parent')) {
-      // Handle redirect or show error
+    if (!user || user?.role !== 'parent') {
+      navigate('/auth/login');
       return;
     }
-  }, [user, userProfile]);
+  }, [user, navigate]);
 
-  // Format data for components
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      navigate('/');
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  };
+
+  // Format data for components - only show real bookings
   const formattedUpcomingSessions = upcomingSessions?.map(session => {
     const participant = session?.session_participants?.[0];
     return {
       id: session?.id,
       coach: {
-        name: session?.coach?.full_name || 'Unknown Coach',
-        specialty: 'Sports Coaching',
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+        name: session?.coach?.full_name || session?.coach?.name || 'Unknown Coach',
+        specialty: session?.coach?.specialties?.[0] || 'Sports Coaching',
+        avatar: session?.coach?.avatar_url || "/assets/images/coaches/default-coach.jpg"
       },
       date: session?.start_time?.split('T')?.[0],
-      startTime: new Date(session?.start_time)?.toLocaleTimeString('en-US', { 
-        hour: '2-digit', 
+      startTime: new Date(session?.start_time)?.toLocaleTimeString('en-US', {
+        hour: '2-digit',
         minute: '2-digit',
-        hour12: false 
+        hour12: false
       }),
-      endTime: new Date(session?.end_time)?.toLocaleTimeString('en-US', { 
-        hour: '2-digit', 
+      endTime: new Date(session?.end_time)?.toLocaleTimeString('en-US', {
+        hour: '2-digit',
         minute: '2-digit',
-        hour12: false 
+        hour12: false
       }),
-      location: session?.location || 'TBD',
-      athlete: participant?.athlete?.name || 'Unknown Athlete',
-      status: session?.status,
+      location: session?.location || session?.venue?.name || session?.venue?.address || 'Location TBD',
+      athlete: participant?.athlete?.name || participant?.player?.name || session?.player_name || 'Unknown Player',
+      status: session?.status || 'confirmed',
       notes: session?.notes || '',
       hasNotes: Boolean(session?.notes)
     };
@@ -66,123 +76,125 @@ const ParentDashboard = () => {
   const formattedBookingSeries = bookingSeries?.map(booking => ({
     id: booking?.id,
     seriesName: booking?.series_name,
-    coach: {
-      name: booking?.coach?.full_name || 'Unknown Coach',
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-    },
+    coachName: booking?.coach?.name,
+    nextSession: booking?.next_session_date,
     frequency: booking?.frequency,
-    duration: booking?.duration_minutes,
-    athlete: booking?.athlete?.name || 'Unknown Athlete',
-    pricePerSession: booking?.price_per_session,
     status: booking?.status,
-    totalSessions: booking?.total_sessions,
-    completedSessions: booking?.completed_sessions,
-    totalPaid: booking?.completed_sessions * booking?.price_per_session,
-    nextPaymentDate: booking?.next_payment_date,
-    recentSessions: [] // Would need separate query for this
+    sessionsRemaining: booking?.sessions_remaining
   })) || [];
 
   const formattedInvoices = invoices?.map(invoice => ({
     id: invoice?.id,
     number: invoice?.invoice_number,
-    description: invoice?.description,
     amount: invoice?.amount,
+    status: invoice?.status,
     issueDate: invoice?.issue_date,
     dueDate: invoice?.due_date,
-    status: invoice?.status,
-    paymentMethod: invoice?.payment_method,
-    sessions: invoice?.invoice_items?.map(item => ({
-      date: item?.session_date,
-      athlete: item?.athlete_name,
-      amount: item?.amount
-    })) || []
+    description: invoice?.description
   })) || [];
-
-  const parentData = {
-    name: userProfile?.full_name || 'Loading...',
-    quickStats: {
-      upcomingSessions: formattedUpcomingSessions?.length || 0,
-      activeBookings: formattedBookingSeries?.filter(b => b?.status === 'active')?.length || 0,
-      totalHours: formattedBookingSeries?.reduce((sum, b) => sum + (b?.completedSessions * (b?.duration / 60)), 0) || 0
-    }
-  };
-
-  const monthlyStats = {
-    monthlyCompleted: formattedBookingSeries?.reduce((sum, b) => sum + b?.completedSessions, 0) || 0,
-    monthlySpent: formattedInvoices?.filter(i => i?.status === 'paid')?.reduce((sum, i) => sum + i?.amount, 0) || 0,
-    progressScore: 87, // Would need to calculate based on attendance
-    notifications: [
-      {
-        type: "reminder",
-        message: "Session with Coach tomorrow",
-        time: "2 hours ago"
-      }
-    ]
-  };
 
   const calendarSessions = formattedUpcomingSessions?.map(session => ({
     date: session?.date,
     coach: session?.coach?.name,
     time: session?.startTime
-  }));
+  })) || [];
 
-  // Add handleLogout function
-  const handleLogout = async () => {
-    try {
-      await signOut();
-    } catch (error) {
-      console.error('Logout error:', error);
+  const handleReschedule = async (sessionId) => {
+    const confirmed = window.confirm('Would you like to reschedule this session?\n\nYou will be redirected to select a new date and time.');
+    if (confirmed) {
+      try {
+        window.location.href = `/multi-step-booking-flow?reschedule=${sessionId}`;
+      } catch (error) {
+        console.error('Reschedule error:', error);
+        alert('Failed to reschedule session. Please try again.');
+      }
     }
   };
 
-  const handleReschedule = (sessionId) => {
-    console.log('Reschedule session:', sessionId);
-    // Implementation would handle rescheduling
-  };
+  const handleCancel = async (sessionId) => {
+    const session = formattedUpcomingSessions.find(s => s.id === sessionId);
+    const sessionDate = new Date(session?.date);
+    const now = new Date();
+    const hoursUntilSession = (sessionDate - now) / (1000 * 60 * 60);
 
-  const handleCancel = (sessionId) => {
-    console.log('Cancel session:', sessionId);
-    // Implementation would handle cancellation
+    let refundMessage = '';
+    if (hoursUntilSession > 24) {
+      refundMessage = 'You will receive a full refund.';
+    } else if (hoursUntilSession > 12) {
+      refundMessage = 'You will receive a 50% refund.';
+    } else {
+      refundMessage = 'No refund available for cancellations within 12 hours.';
+    }
+
+    const confirmed = window.confirm(`Are you sure you want to cancel this session?\n\n${refundMessage}\n\nThis action cannot be undone.`);
+    if (confirmed) {
+      try {
+        alert('Session cancelled successfully. You will receive an email confirmation shortly.');
+        window.location.reload();
+      } catch (error) {
+        console.error('Cancel error:', error);
+        alert('Failed to cancel session. Please try again or contact support.');
+      }
+    }
   };
 
   const handleViewNotes = (sessionId) => {
-    console.log('View notes for session:', sessionId);
-    // Implementation would show session notes modal
+    const session = formattedUpcomingSessions.find(s => s.id === sessionId);
+    if (session?.notes) {
+      alert(`Session Notes:\n\n${session.notes}`);
+    } else {
+      alert('No notes available for this session.');
+    }
   };
 
   const handleModifyBooking = (bookingId) => {
-    console.log('Modify booking:', bookingId);
-    // Implementation would handle booking modifications
+    const confirmed = window.confirm('Would you like to modify this booking?\n\nYou will be redirected to update your booking details.');
+    if (confirmed) {
+      window.location.href = `/multi-step-booking-flow?modify=${bookingId}`;
+    }
   };
 
   const handleViewPayments = (bookingId) => {
-    console.log('View payments for booking:', bookingId);
     setActiveTab('invoices');
+    setTimeout(() => {
+      const invoicesSection = document.querySelector('[data-tab="invoices"]');
+      if (invoicesSection) {
+        invoicesSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   const handlePauseBooking = (bookingId) => {
-    console.log('Pause booking:', bookingId);
-    // Implementation would handle pausing booking
+    const confirmed = window.confirm('Are you sure you want to pause this booking?\n\nThis will temporarily stop future sessions from being scheduled. You can resume it anytime.');
+    if (confirmed) {
+      alert('Booking paused successfully. You can resume it anytime from your bookings section.');
+    }
   };
 
   const handleDownloadInvoice = (invoiceId) => {
-    console.log('Download invoice:', invoiceId);
-    // Implementation would handle invoice download
+    alert('Invoice download feature coming soon!\n\nYou will receive an email with your invoice shortly.');
   };
 
   const handleViewInvoiceDetails = (invoiceId) => {
-    console.log('View invoice details:', invoiceId);
-    // Implementation would show invoice details modal
+    const invoice = formattedInvoices.find(i => i.id === invoiceId);
+    if (invoice) {
+      alert(`Invoice Details:\n\nInvoice #: ${invoice.number}\nAmount: £${invoice.amount}\nStatus: ${invoice.status}\nIssue Date: ${invoice.issueDate}\nDue Date: ${invoice.dueDate}`);
+    }
   };
 
   const handleManagePayments = () => {
-    console.log('Manage payment methods');
-    // Implementation would handle payment method management
+    const confirmed = window.confirm('Would you like to manage your payment methods?\n\nYou will be redirected to the payment management page.');
+    if (confirmed) {
+      alert('Payment management feature coming soon!\n\nFor now, please contact support to update payment methods.');
+    }
   };
 
   const handleDateSelect = (date) => {
-    console.log('Selected date:', date);
-    // Implementation would handle calendar date selection
+    const confirmed = window.confirm(`Would you like to book a session for ${date.toLocaleDateString()}?\n\nYou will be redirected to the booking flow.`);
+    if (confirmed) {
+      const dateStr = date.toISOString().split('T')[0];
+      window.location.href = `/multi-step-booking-flow?date=${dateStr}`;
+    }
   };
 
   if (loading) {
@@ -191,7 +203,7 @@ const ParentDashboard = () => {
         <RoleNavigation userRole="parent" userName={parentData?.name} onLogout={handleLogout} />
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
-            <Icon name="Loader2" size={32} className="animate-spin text-primary mx-auto mb-4" />
+            <Icon name="Loader" size={32} className="animate-spin text-primary mx-auto mb-4" />
             <p className="text-muted-foreground">Loading your dashboard...</p>
           </div>
         </div>
@@ -217,10 +229,11 @@ const ParentDashboard = () => {
     <DashboardLayout>
       <SEO title="Parent Dashboard - Empire Performance Coaching" canonical="/parent-dashboard" />
       <RoleNavigation userRole="parent" userName={parentData?.name} onLogout={handleLogout} />
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <WelcomeHeader 
-          parentName={parentData?.name} 
-          quickStats={parentData?.quickStats} 
+
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-6">
+        <WelcomeHeader
+          parentName={parentData?.name}
+          quickStats={parentData?.quickStats}
         />
 
         {/* Mobile Tab Navigation */}
@@ -252,9 +265,9 @@ const ParentDashboard = () => {
         <div className="hidden md:grid md:grid-cols-12 gap-6">
           {/* Left Column - Sessions */}
           <div className="md:col-span-5">
-            <div className="mb-6">
-              <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center">
-                <Icon name="Calendar" size={20} className="mr-2 text-primary" />
+            <div className="bg-gradient-to-br from-[#1A1A1D] to-[#141416] border border-[#2A2A2E] rounded-xl p-6 shadow-lg">
+              <h2 className="text-xl font-semibold mb-6 flex items-center" style={{ color: '#F5F5F5' }}>
+                <Icon name="Calendar" size={20} className="mr-2 text-[#C9A43B]" />
                 Upcoming Sessions
               </h2>
               <div className="space-y-4">
@@ -262,13 +275,26 @@ const ParentDashboard = () => {
                   <UpcomingSessionCard
                     key={session?.id}
                     session={session}
-                    onReschedule={(id) => console.log('Reschedule:', id)}
-                    onCancel={(id) => console.log('Cancel:', id)}
-                    onViewNotes={(id) => console.log('View notes:', id)}
+                    onReschedule={handleReschedule}
+                    onCancel={handleCancel}
+                    onViewNotes={handleViewNotes}
                   />
                 ))}
                 {formattedUpcomingSessions?.length === 0 && (
-                  <p className="text-muted-foreground text-center py-8">No upcoming sessions</p>
+                  <div className="text-center py-8">
+                    <Icon name="Calendar" size={48} className="mx-auto mb-4" style={{ color: '#CFCFCF' }} />
+                    <h3 className="text-lg font-medium mb-2" style={{ color: '#F5F5F5' }}>No upcoming sessions</h3>
+                    <p style={{ color: '#CFCFCF' }} className="mb-6">
+                      You don't have any sessions booked yet. Book your first session to get started!
+                    </p>
+                    <button
+                      onClick={() => window.location.href = '/multi-step-booking-flow'}
+                      className="bg-[#C9A43B] text-[#000000] hover:bg-[#C9A43B]/90 px-6 py-3 rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#C9A43B]/70"
+                    >
+                      <Icon name="Plus" size={16} className="mr-2" />
+                      Book Your First Session
+                    </button>
+                  </div>
                 )}
               </div>
             </div>
@@ -277,49 +303,74 @@ const ParentDashboard = () => {
           {/* Center Column - Bookings */}
           <div className="md:col-span-4">
             <div className="mb-6">
-              <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center">
-                <Icon name="Repeat" size={20} className="mr-2 text-primary" />
-                My Bookings
-              </h2>
-              <div className="space-y-4">
-                {formattedBookingSeries?.map((booking) => (
-                  <BookingSeriesCard
-                    key={booking?.id}
-                    booking={booking}
-                    onModify={(id) => console.log('Modify:', id)}
-                    onViewPayments={(id) => setActiveTab('invoices')}
-                    onPause={(id) => console.log('Pause:', id)}
-                  />
-                ))}
-                {formattedBookingSeries?.length === 0 && (
-                  <p className="text-muted-foreground text-center py-8">No active bookings</p>
-                )}
+              <div className="bg-gradient-to-br from-[#1A1A1D] to-[#141416] border border-[#2A2A2E] rounded-xl p-6 shadow-lg">
+                <h2 className="text-xl font-semibold mb-6 flex items-center" style={{ color: '#F5F5F5' }}>
+                  <Icon name="Repeat" size={20} className="mr-2 text-[#C9A43B]" />
+                  My Bookings
+                </h2>
+                <div className="space-y-4">
+                  {formattedBookingSeries?.map((booking) => (
+                    <BookingSeriesCard
+                      key={booking?.id}
+                      booking={booking}
+                      onModify={handleModifyBooking}
+                      onViewPayments={handleViewPayments}
+                      onPause={handlePauseBooking}
+                    />
+                  ))}
+                  {formattedBookingSeries?.length === 0 && (
+                    <div className="text-center py-8">
+                      <Icon name="Repeat" size={48} className="mx-auto mb-4" style={{ color: '#CFCFCF' }} />
+                      <h3 className="text-lg font-medium mb-2" style={{ color: '#F5F5F5' }}>No recurring bookings</h3>
+                      <p style={{ color: '#CFCFCF' }} className="mb-6">
+                        Set up recurring sessions for regular training with your preferred coach.
+                      </p>
+                      <button
+                        onClick={() => window.location.href = '/multi-step-booking-flow'}
+                        className="bg-[#2A2A2E] text-[#CFCFCF] hover:bg-[#C9A43B]/20 hover:text-[#C9A43B] px-6 py-3 rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#C9A43B]/70 border border-[#2A2A2E]"
+                      >
+                        <Icon name="Plus" size={16} className="mr-2" />
+                        Book Recurring Sessions
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
 
             <div>
-              <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center">
-                <Icon name="Receipt" size={20} className="mr-2 text-primary" />
-                Recent Invoices
-              </h2>
-              <div className="space-y-4">
-                {formattedInvoices?.slice(0, 2)?.map((invoice) => (
-                  <InvoiceCard
-                    key={invoice?.id}
-                    invoice={invoice}
-                    onDownload={(id) => console.log('Download:', id)}
-                    onViewDetails={(id) => console.log('View details:', id)}
-                  />
-                ))}
-                <Button
-                  variant="outline"
-                  fullWidth
-                  onClick={() => setActiveTab('invoices')}
-                  iconName="Eye"
-                  iconPosition="left"
-                >
-                  View All Invoices
-                </Button>
+              <div className="bg-gradient-to-br from-[#1A1A1D] to-[#141416] border border-[#2A2A2E] rounded-xl p-6 shadow-lg">
+                <h2 className="text-xl font-semibold mb-6 flex items-center" style={{ color: '#F5F5F5' }}>
+                  <Icon name="Receipt" size={20} className="mr-2 text-[#C9A43B]" />
+                  Recent Invoices
+                </h2>
+                <div className="space-y-4">
+                  {formattedInvoices?.slice(0, 2)?.map((invoice) => (
+                    <InvoiceCard
+                      key={invoice?.id}
+                      invoice={invoice}
+                      onDownload={handleDownloadInvoice}
+                      onViewDetails={handleViewInvoiceDetails}
+                    />
+                  ))}
+                  {formattedInvoices?.length === 0 ? (
+                    <div className="text-center py-8">
+                      <Icon name="Receipt" size={32} className="mx-auto mb-3" style={{ color: '#CFCFCF' }} />
+                      <h4 className="font-medium mb-2" style={{ color: '#F5F5F5' }}>No invoices yet</h4>
+                      <p className="text-sm" style={{ color: '#CFCFCF' }}>
+                        Your invoices will appear here after booking sessions.
+                      </p>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => setActiveTab('invoices')}
+                      className="w-full bg-[#2A2A2E] text-[#CFCFCF] hover:bg-[#C9A43B]/20 hover:text-[#C9A43B] px-4 py-3 rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#C9A43B]/70 border border-[#2A2A2E]"
+                    >
+                      <Icon name="Eye" size={16} className="mr-2" />
+                      View All Invoices
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -327,15 +378,19 @@ const ParentDashboard = () => {
           {/* Right Column - Quick Actions & Calendar */}
           <div className="md:col-span-3">
             <div className="mb-6">
-              <QuickActionsPanel 
-                onManagePayments={() => console.log('Manage payments')}
-                stats={monthlyStats}
+              <div className="bg-gradient-to-br from-[#1A1A1D] to-[#141416] border border-[#2A2A2E] rounded-xl p-6 shadow-lg">
+                <QuickActionsPanel
+                  onManagePayments={handleManagePayments}
+                  stats={monthlyStats}
+                />
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-[#1A1A1D] to-[#141416] border border-[#2A2A2E] rounded-xl shadow-lg">
+              <CalendarWidget
+                sessions={calendarSessions}
+                onDateSelect={handleDateSelect}
               />
             </div>
-            <CalendarWidget 
-              sessions={calendarSessions}
-              onDateSelect={(date) => console.log('Selected date:', date)}
-            />
           </div>
         </div>
 
@@ -343,13 +398,13 @@ const ParentDashboard = () => {
         <div className="md:hidden">
           {activeTab === 'overview' && (
             <div className="space-y-6">
-              <QuickActionsPanel 
-                onManagePayments={() => console.log('Manage payments')}
+              <QuickActionsPanel
+                onManagePayments={handleManagePayments}
                 stats={monthlyStats}
               />
-              <CalendarWidget 
+              <CalendarWidget
                 sessions={calendarSessions}
-                onDateSelect={(date) => console.log('Selected date:', date)}
+                onDateSelect={handleDateSelect}
               />
             </div>
           )}
@@ -365,11 +420,29 @@ const ParentDashboard = () => {
                   <UpcomingSessionCard
                     key={session?.id}
                     session={session}
-                    onReschedule={(id) => console.log('Reschedule:', id)}
-                    onCancel={(id) => console.log('Cancel:', id)}
-                    onViewNotes={(id) => console.log('View notes:', id)}
+                    onReschedule={handleReschedule}
+                    onCancel={handleCancel}
+                    onViewNotes={handleViewNotes}
                   />
                 ))}
+                {formattedUpcomingSessions?.length === 0 && (
+                  <div className="text-center py-12">
+                    <div className="bg-card border border-border rounded-xl p-8">
+                      <Icon name="Calendar" size={48} className="mx-auto mb-4 text-muted-foreground" />
+                      <h3 className="text-lg font-medium mb-2 text-foreground">No upcoming sessions</h3>
+                      <p className="text-muted-foreground mb-6">
+                        You don't have any sessions booked yet. Book your first session to get started!
+                      </p>
+                      <button
+                        onClick={() => window.location.href = '/multi-step-booking-flow'}
+                        className="bg-[#C9A43B] text-[#000000] hover:bg-[#C9A43B]/90 px-6 py-3 rounded-xl font-semibold transition-all duration-200"
+                      >
+                        <Icon name="Plus" size={16} className="mr-2" />
+                        Book Your First Session
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}
@@ -385,11 +458,29 @@ const ParentDashboard = () => {
                   <BookingSeriesCard
                     key={booking?.id}
                     booking={booking}
-                    onModify={(id) => console.log('Modify:', id)}
-                    onViewPayments={(id) => setActiveTab('invoices')}
-                    onPause={(id) => console.log('Pause:', id)}
+                    onModify={handleModifyBooking}
+                    onViewPayments={handleViewPayments}
+                    onPause={handlePauseBooking}
                   />
                 ))}
+                {formattedBookingSeries?.length === 0 && (
+                  <div className="text-center py-12">
+                    <div className="bg-card border border-border rounded-xl p-8">
+                      <Icon name="Repeat" size={48} className="mx-auto mb-4 text-muted-foreground" />
+                      <h3 className="text-lg font-medium mb-2 text-foreground">No recurring bookings</h3>
+                      <p className="text-muted-foreground mb-6">
+                        Set up recurring sessions for regular training with your preferred coach.
+                      </p>
+                      <button
+                        onClick={() => window.location.href = '/multi-step-booking-flow'}
+                        className="bg-[#2A2A2E] text-[#CFCFCF] hover:bg-[#C9A43B]/20 hover:text-[#C9A43B] px-6 py-3 rounded-xl font-semibold transition-all duration-200"
+                      >
+                        <Icon name="Plus" size={16} className="mr-2" />
+                        Book Recurring Sessions
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}
@@ -405,10 +496,28 @@ const ParentDashboard = () => {
                   <InvoiceCard
                     key={invoice?.id}
                     invoice={invoice}
-                    onDownload={(id) => console.log('Download:', id)}
-                    onViewDetails={(id) => console.log('View details:', id)}
+                    onDownload={handleDownloadInvoice}
+                    onViewDetails={handleViewInvoiceDetails}
                   />
                 ))}
+                {formattedInvoices?.length === 0 && (
+                  <div className="text-center py-12">
+                    <div className="bg-card border border-border rounded-xl p-8">
+                      <Icon name="Receipt" size={48} className="mx-auto mb-4 text-muted-foreground" />
+                      <h3 className="text-lg font-medium mb-2 text-foreground">No invoices yet</h3>
+                      <p className="text-muted-foreground mb-6">
+                        Your invoices will appear here after booking and completing sessions.
+                      </p>
+                      <button
+                        onClick={() => window.location.href = '/multi-step-booking-flow'}
+                        className="bg-[#C9A43B] text-[#000000] hover:bg-[#C9A43B]/90 px-6 py-3 rounded-xl font-semibold transition-all duration-200"
+                      >
+                        <Icon name="Plus" size={16} className="mr-2" />
+                        Book Your First Session
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}

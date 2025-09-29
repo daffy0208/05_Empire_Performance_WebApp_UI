@@ -21,7 +21,7 @@ const DirectorDashboard = () => {
       <SEO title="Director Dashboard - Empire Performance Coaching" canonical="/director-dashboard" />
       {/* Header */}
       <header className="bg-gradient-to-r from-[#0E0E10] to-[#141416] border-b border-[#2A2A2E] px-6 py-4">
-        <div className="flex items-center justify-between max-w-7xl mx-auto">
+        <div className="flex items-center justify-between w-full">
           {/* Left: Logo + Director Info */}
           <div className="flex items-center space-x-6">
             {/* Empire Performance Logo - consistent h-8 sizing */}
@@ -62,7 +62,7 @@ const DirectorDashboard = () => {
 
       {/* Role-gated access for director only */}
       <AuthGuard allowedRoles={["director"]}>
-        <div className="max-w-[1440px] mx-auto px-6 md:px-8 py-8">
+        <div className="w-full px-6 md:px-8 py-8">
           {/* Key Performance Indicators */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <MetricsCard
